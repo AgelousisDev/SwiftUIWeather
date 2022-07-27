@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SwiftUIWeather
+
+  Created by Vagelis Agelousis on 27/07/2022.
+  
+*/
+"key_today_label"                           = "Today";
+"key_tomorrow_label"                        = "Tomorrow";
+"key_next_days_label"                       = "Next Days";
