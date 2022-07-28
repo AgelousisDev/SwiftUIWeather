@@ -5,13 +5,14 @@
   Created by Vagelis Agelousis on 27/07/2022.
   
 */
+"key_app_name_label"                        = "SwiftUI Weather";
 "key_today_label"                           = "Today";
 "key_tomorrow_label"                        = "Tomorrow";
 "key_next_days_label"                       = "Next Days";
 "key_error_label"                           = "Error";
 "key_search_places_label"                   = "Search Places";
 "key_location_label"                        = "Location";
-"key_feels_like_label"                      = "Feels like %@"
+"key_feels_like_label"                      = "Feels like %@";
 "key_weather_label"                         = "Weather";
 "key_settings_label"                        = "Settings";
 "key_temperature_unit_label"                = "Temperature Unit";
@@ -32,7 +33,7 @@
 "key_uv_index_value_label"                  = "%@ • %d";
 "key_uv_index_levels_array"                 = "Low|Moderate|High|Very High|Extreme";
 "key_humidity_label"                        = "Humidity";
-"key_value_with_percent_label"              = "%d%%"
-"key_last_updated_with_date_label"          = "Last Updated\n%@"
+"key_value_with_percent_label"              = "%d%%";
+"key_last_updated_with_date_label"          = "Last Updated\n%@";
 "key_notifications_channel_name"            = "SwiftUI Weather Notification";
 "key_weather_notifications_label"           = "Weather notifications";

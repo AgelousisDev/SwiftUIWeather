@@ -55,7 +55,7 @@
 		712C28A82890E5E2002AD4CF /* SwiftUIWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWeatherApp.swift; sourceTree = "<group>"; };
 		712C28A92890E5E2002AD4CF /* WeatherMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMainContentView.swift; sourceTree = "<group>"; };
 		712C28AA2890E5E5002AD4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		712C28AF2890E5E5002AD4CF /* SwiftUIWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		712C28AF2890E5E5002AD4CF /* SwiftUI Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		712C28B52890E5E5002AD4CF /* SwiftUIWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		712C28B72890E5E5002AD4CF /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		712C28BC2890E5E5002AD4CF /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 		712C28B02890E5E5002AD4CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				712C28AF2890E5E5002AD4CF /* SwiftUIWeather.app */,
+				712C28AF2890E5E5002AD4CF /* SwiftUI Weather.app */,
 				712C28B52890E5E5002AD4CF /* SwiftUIWeather.app */,
 				712C28BC2890E5E5002AD4CF /* Tests iOS.xctest */,
 				712C28C82890E5E5002AD4CF /* Tests macOS.xctest */,
@@ -222,7 +222,7 @@
 			);
 			name = "SwiftUIWeather (iOS)";
 			productName = "SwiftUIWeather (iOS)";
-			productReference = 712C28AF2890E5E5002AD4CF /* SwiftUIWeather.app */;
+			productReference = 712C28AF2890E5E5002AD4CF /* SwiftUI Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		712C28B42890E5E5002AD4CF /* SwiftUIWeather (macOS) */ = {
@@ -427,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -485,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -554,7 +556,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agelousis.swiftUIWeather.SwiftUIWeather;
-				PRODUCT_NAME = SwiftUIWeather;
+				PRODUCT_NAME = "SwiftUI Weather";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -584,7 +586,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agelousis.swiftUIWeather.SwiftUIWeather;
-				PRODUCT_NAME = SwiftUIWeather;
+				PRODUCT_NAME = "SwiftUI Weather";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -12,12 +12,33 @@ struct WeatherMainContentView: View {
     @State private var selectedTab = WeatherNavigationScreen.Tomorrow.rawValue
     
     var body: some View {
+        NavigationView {
             TabView(selection: $selectedTab) {
                 TodayContentView()
                 TomorrowContentView()
                 NextDaysContentView()
             }
+            .navigationBarTitle("key_app_name_label".localized)
+            .navigationBarItems(
+                trailing: HStack {
+                    Button(
+                        action: {
+                            
+                        }
+                    ) {
+                        Image(systemName: "location")
+                    }
+                    Button(
+                        action: {
+                            
+                        }
+                    ) {
+                        Image(systemName: "pencil")
+                    }
+                }
+            )
         }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
