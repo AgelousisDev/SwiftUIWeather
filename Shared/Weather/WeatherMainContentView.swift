@@ -9,11 +9,11 @@ import SwiftUI
 
 struct WeatherMainContentView: View {
     
-    @State private var selectedTab = WeatherNavigationScreen.Tomorrow.rawValue
+    @StateObject private var viewModel = WeatherViewModel()
     
     var body: some View {
         NavigationView {
-            TabView(selection: $selectedTab) {
+            TabView(selection: $viewModel.selectedTab) {
                 TodayContentView()
                 TomorrowContentView()
                 NextDaysContentView()

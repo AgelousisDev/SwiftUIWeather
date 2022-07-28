@@ -37,3 +37,5 @@
 "key_last_updated_with_date_label"          = "Last Updated\n%@";
 "key_notifications_channel_name"            = "SwiftUI Weather Notification";
 "key_weather_notifications_label"           = "Weather notifications";
+"key_generic_error_message"                 = "There was a problem processing your request. Please try again later.";
+"key_warning_label"                         = "Warning";
