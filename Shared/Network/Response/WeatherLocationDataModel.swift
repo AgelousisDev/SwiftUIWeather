@@ -8,5 +8,20 @@
 import Foundation
 
 struct WeatherLocationDataModel: Codable {
-    
+        let name: String?
+        let region: String?
+        let country: String?
+        let lat: Double?
+        let lon: Double?
+        let tz_id: String?
+        let localtime_epoch: Long?
+        let localtime: String?
+
+    var regionCountry: String {
+        return "%@, %@".format(
+            region ?? "",
+            country ?? ""
+        )
+    }
+
 }

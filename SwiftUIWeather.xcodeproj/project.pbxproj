@@ -15,6 +15,14 @@
 		711901AF2891125B00E868E9 /* TomorrowContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901AD2891125B00E868E9 /* TomorrowContentView.swift */; };
 		711901B12891149000E868E9 /* NextDaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901B02891149000E868E9 /* NextDaysContentView.swift */; };
 		711901B22891149000E868E9 /* NextDaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901B02891149000E868E9 /* NextDaysContentView.swift */; };
+		7125F75328939C8500F72D6F /* WeatherConditionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */; };
+		7125F75428939C8500F72D6F /* WeatherConditionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */; };
+		7125F75628939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */; };
+		7125F75728939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */; };
+		7125F75A28939D9B00F72D6F /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75928939D9B00F72D6F /* CustomColor.swift */; };
+		7125F75B28939D9B00F72D6F /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75928939D9B00F72D6F /* CustomColor.swift */; };
+		7125F75D28939DDD00F72D6F /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75C28939DDD00F72D6F /* ColorUtils.swift */; };
+		7125F75E28939DDD00F72D6F /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75C28939DDD00F72D6F /* ColorUtils.swift */; };
 		712C28C12890E5E5002AD4CF /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C28C02890E5E5002AD4CF /* Tests_iOS.swift */; };
 		712C28C32890E5E5002AD4CF /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C28C22890E5E5002AD4CF /* Tests_iOSLaunchTests.swift */; };
 		712C28CD2890E5E5002AD4CF /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C28CC2890E5E5002AD4CF /* Tests_macOS.swift */; };
@@ -72,6 +80,10 @@
 		711901A8289107E300E868E9 /* TodayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayContentView.swift; sourceTree = "<group>"; };
 		711901AD2891125B00E868E9 /* TomorrowContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowContentView.swift; sourceTree = "<group>"; };
 		711901B02891149000E868E9 /* NextDaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDaysContentView.swift; sourceTree = "<group>"; };
+		7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionDataModel.swift; sourceTree = "<group>"; };
+		7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAirQualityDataModel.swift; sourceTree = "<group>"; };
+		7125F75928939D9B00F72D6F /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		7125F75C28939DDD00F72D6F /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		712C28A82890E5E2002AD4CF /* SwiftUIWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWeatherApp.swift; sourceTree = "<group>"; };
 		712C28A92890E5E2002AD4CF /* WeatherMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMainContentView.swift; sourceTree = "<group>"; };
 		712C28AA2890E5E5002AD4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				712C28EC2890EBB7002AD4CF /* Extensions */,
+				7125F75928939D9B00F72D6F /* CustomColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -234,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				712C28EE2890EBCC002AD4CF /* StringUtils.swift */,
+				7125F75C28939DDD00F72D6F /* ColorUtils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +303,8 @@
 				713783B5289292D9006FFC87 /* WeatherLocationDataModel.swift */,
 				713783B8289292F8006FFC87 /* CurrentWeatherDataModel.swift */,
 				713783BB28929316006FFC87 /* WeatherForecastDataModel.swift */,
+				7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */,
+				7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -463,10 +479,12 @@
 			files = (
 				713783C028929446006FFC87 /* ErrorModel.swift in Sources */,
 				713783AF28928EB0006FFC87 /* ApiConstants.swift in Sources */,
+				7125F75628939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */,
 				7137839F28928AE0006FFC87 /* WeatherMainContentView+Extensions.swift in Sources */,
 				712C28EF2890EBCC002AD4CF /* StringUtils.swift in Sources */,
 				712C28D22890E5E5002AD4CF /* WeatherMainContentView.swift in Sources */,
 				712C28E72890E976002AD4CF /* WeatherNavigationScreen.swift in Sources */,
+				7125F75328939C8500F72D6F /* WeatherConditionDataModel.swift in Sources */,
 				713783B6289292D9006FFC87 /* WeatherLocationDataModel.swift in Sources */,
 				713783B9289292F8006FFC87 /* CurrentWeatherDataModel.swift in Sources */,
 				711901A9289107E300E868E9 /* TodayContentView.swift in Sources */,
@@ -474,9 +492,11 @@
 				711901B12891149000E868E9 /* NextDaysContentView.swift in Sources */,
 				713783A328928C2F006FFC87 /* AddressDataModel.swift in Sources */,
 				713783BC28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
+				7125F75D28939DDD00F72D6F /* ColorUtils.swift in Sources */,
 				712C28D02890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
 				711901AE2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
 				713783AC28928DBD006FFC87 /* RQ_WeatherForecastManager.swift in Sources */,
+				7125F75A28939D9B00F72D6F /* CustomColor.swift in Sources */,
 				713783B328929258006FFC87 /* WeatherResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,10 +507,12 @@
 			files = (
 				713783C128929446006FFC87 /* ErrorModel.swift in Sources */,
 				713783B028928EB0006FFC87 /* ApiConstants.swift in Sources */,
+				7125F75728939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */,
 				713783A028928AE0006FFC87 /* WeatherMainContentView+Extensions.swift in Sources */,
 				711901AA2891086800E868E9 /* TodayContentView.swift in Sources */,
 				711901AB28910E2E00E868E9 /* StringUtils.swift in Sources */,
 				712C28D32890E5E5002AD4CF /* WeatherMainContentView.swift in Sources */,
+				7125F75428939C8500F72D6F /* WeatherConditionDataModel.swift in Sources */,
 				713783B7289292D9006FFC87 /* WeatherLocationDataModel.swift in Sources */,
 				713783BA289292F8006FFC87 /* CurrentWeatherDataModel.swift in Sources */,
 				712C28F02890ED76002AD4CF /* WeatherNavigationScreen.swift in Sources */,
@@ -498,9 +520,11 @@
 				711901B22891149000E868E9 /* NextDaysContentView.swift in Sources */,
 				713783A428928C2F006FFC87 /* AddressDataModel.swift in Sources */,
 				713783BD28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
+				7125F75E28939DDD00F72D6F /* ColorUtils.swift in Sources */,
 				712C28D12890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
 				711901AF2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
 				713783AD28928DBD006FFC87 /* RQ_WeatherForecastManager.swift in Sources */,
+				7125F75B28939D9B00F72D6F /* CustomColor.swift in Sources */,
 				713783B428929258006FFC87 /* WeatherResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
