@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 import SwiftUI
 
 extension WeatherMainContentView {
@@ -22,7 +21,7 @@ extension WeatherMainContentView {
         @State var alertState = false
         @State var alertTuple: (String?, String?) = (null, null)
         
-        func requestForecase(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>) {
+        func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>) {
             isLoading = true
             RequestManager.requestWeatherForecase(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
                 successModelBlock(weatherResponseModel)

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct CurrentWeatherDataModel: Codable {
     let last_updated_epoch: Long? = nil
@@ -104,34 +103,35 @@ struct CurrentWeatherDataModel: Codable {
 
     var uvIndexColor: UIColor {
         switch Int(uv ?? 0.0) {
-        case 0...2 ->
-                R.color.green
-        case 3...5 ->
-                R.color.yellowDarker
-        case 6...7 ->
-                R.color.orange
-        case 8...10 ->
-                R.color.red
+        case 0...2:
+            return CustomColor.greenColor
+        case 3...5:
+            return CustomColor.yellowDarkerColor
+        case 6...7:
+            return CustomColor.orangeColor
+        case 8...10:
+            return CustomColor.redColor
         default:
-                R.color.violet
+            return CustomColor.violetColor
         }
     }
-        infix fun getUvIndexExposureLevel(
-            context: Context
-        ): String = with(context.resources.getStringArray(R.array.key_uv_index_levels_array)) {
-            val exposureLevel = when(uv?.toInt() ?: 0) {
-                in 0..2 ->
-                    0
-                in 3..5 ->
-                    1
-                in 6..7 ->
-                    2
-                in 8..10 ->
-                    3
-                else ->
-                    4
-            }
-            this[exposureLevel]
+    
+    var uvIndexExposureLevel: String {
+        let uvIndexLevelsArray = "key_uv_index_levels_array".split(separator: "|")
+        var index = 0
+        switch Int(uv ?? 0) {
+        case 0...2:
+            index = 0
+        case 3...5:
+            index = 1
+        case 6...7:
+            index = 2
+        case 8...10:
+            index = 3
+        default:
+            index = 4
         }
+        return uvIndexLevelsArray[index]
+    }
     
 }

@@ -15,4 +15,6 @@ struct CustomColor {
     static let greenColor = UIColor.init(hex: 0x31AD31)
     static let yellowDarkerColor = UIColor.init(hex: 0xFCE293)
     static let redColor = UIColor.init(hex: 0xE57373)
+    static let orangeColor = UIColor.init(hex: 0xfb8c00)
+    static let violetColor = UIColor.init(hex: 0x673ab7)
 }
