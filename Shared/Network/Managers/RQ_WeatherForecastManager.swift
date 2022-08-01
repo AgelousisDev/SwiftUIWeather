@@ -12,7 +12,7 @@ extension RequestManager {
     
     class func requestWeatherForecase(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>, errorBlock: @escaping ErrorBlock) {
         let urlString = "\(ApiConstants.weatherBaseUrl)\(ApiConstants.Endpoints.forecastEndpoint)"
-        let encoder = JSONEncoder()
+        //let encoder = JSONEncoder()
         guard let url = URL(string: urlString) else {
             errorBlock(ErrorModel(localizedMessage: "key_generic_error_message".localized))
             return
@@ -21,13 +21,13 @@ extension RequestManager {
         request.httpMethod = HTTPMethod.get.rawValue
         request.setValue(ApiConstants.NetworkValues.APPLICATION_JSON, forHTTPHeaderField: ApiConstants.headers.CONTENT_TYPE)
         let parameters: Parameters = [
-            "key": ApiConstants.weatherApiKey,
-            "q": location,
-            "days": days.description,
-            "aqi": airQualityState ? "yes" : "no",
-            "alerts": alertsState ? "yes" : "no"
+            ApiConstants.Parameters.WEATHER_API_KEY_PARAM: ApiConstants.weatherApiKey,
+            ApiConstants.Parameters.LOCATION_PARAM: location,
+            ApiConstants.Parameters.DAYS_PARAM: days.description,
+            ApiConstants.Parameters.AIR_QUALITY_PARAM: airQualityState ? "yes" : "no",
+            ApiConstants.Parameters.ALERTS_STATE_PARAM: alertsState ? "yes" : "no"
         ]
-        AF.request(request, parameters: parameters).response(completionHandler: { response in
+        AF.request(request as! URLConvertible, parameters: parameters).response(completionHandler: { response in
             guard let data = response.data else { return }
             do {
                 let decoder = JSONDecoder()

@@ -6,44 +6,41 @@
 //
 
 import Foundation
+import UIKit
 
 struct CurrentWeatherDataModel: Codable {
-    let last_updated_epoch: Long? = nil
-    let last_updated: String? = nil
-    let temp_c: Double? = nil
-    let temp_f: Double? = nil
-    let is_day: Int? = nil
-    let condition: WeatherConditionDataModel? = nil
-    let wind_mph: Double? = nil
-    let wind_kph: Double? = nil
-    let wind_degree: Int? = nil
-    let wind_dir: String? = nil
-    let pressure_mb: Double? = nil
-    let pressure_in: Double? = nil
-    let precip_mm: Double? = nil
-    let precip_in: Double? = nil
-    let humidity: Int? = nil
-    let cloud: Int? = nil
-    let feelslike_c: Double? = nil
-    let feelslike_f: Double? = nil
-    let vis_km: Double? = nil
-    let vis_miles: Double? = nil
-    let uv: Double? = nil
-    let gust_mph: Double? = nil
-    let gust_kph: Double? = nil
-    let air_quality: WeatherAirQualityDataModel? = nil
+    var last_updated_epoch: CLong? = nil
+    var last_updated: String? = nil
+    var temp_c: Double? = nil
+    var temp_f: Double? = nil
+    var is_day: Int? = nil
+    var condition: WeatherConditionDataModel? = nil
+    var wind_mph: Double? = nil
+    var wind_kph: Double? = nil
+    var wind_degree: Int? = nil
+    var wind_dir: String? = nil
+    var pressure_mb: Double? = nil
+    var pressure_in: Double? = nil
+    var precip_mm: Double? = nil
+    var precip_in: Double? = nil
+    var humidity: Int? = nil
+    var cloud: Int? = nil
+    var feelslike_c: Double? = nil
+    var feelslike_f: Double? = nil
+    var vis_km: Double? = nil
+    var vis_miles: Double? = nil
+    var uv: Double? = nil
+    var gust_mph: Double? = nil
+    var gust_kph: Double? = nil
+    var air_quality: WeatherAirQualityDataModel? = nil
     
     
     var currentTemperatureUnitFormatted: String {
-        return "%d °C".format(
-            tempC?.toInt() ?? 0
-        )
+        return String(format: "%d °C", Int(temp_c ?? 0))
     }
 
     var feelsLikeTemperatureUnitFormatted: String {
-        return "%d °C".format(
-            feelsLikeC?.toInt() ?? 0
-        )
+        return String(format: "%d °C", Int(feelslike_c ?? 0))
     }
 
     private var isDayBool: Bool {
@@ -54,7 +51,7 @@ struct CurrentWeatherDataModel: Codable {
         return isDayBool ? 0/*R.raw.day_animation*/ : 1//R.raw.night_animation
     }
     
-    var windStateColor: UIColor {
+    var windStateColor: UIColor? {
         switch Int(wind_kph ?? 0) {
         case 0...19:
             return CustomColor.blueColor
@@ -71,37 +68,37 @@ struct CurrentWeatherDataModel: Codable {
 
     var windStateWarning: String? {
         let windSpeedWarningsArray = "key_wind_speed_warnings_array".localized.split(separator: "|")
-        switch Int(windKph ?? 0) {
+        switch Int(wind_kph ?? 0) {
         case 0...19:
             return windSpeedWarningsArray.first?.description
         case 20...29:
-            return windSpeedWarningsArray[1]?.description
+            return windSpeedWarningsArray[1].description
         case 30...49:
-            return windSpeedWarningsArray[2]?.description
+            return windSpeedWarningsArray[2].description
         case 50...99:
-            return windSpeedWarningsArray[3]?.description
+            return windSpeedWarningsArray[3].description
         default:
-            return windSpeedWarningsArray[4]?.description
+            return windSpeedWarningsArray[4].description
         }
     }
 
     var getWindDirection: String {
         let windDirectionsArray = "key_wind_directions_array".localized.split(separator: "|")
-        let windDirections = [String]()
+        var windDirections = [String]()
         for windDirection in Array(Set(wind_dir ?? ""))[0...1] {
             windDirections.append(
                 windDirectionsArray.first {
                     $0.starts(
-                        with: windDirection.toString()
+                        with: windDirection.description
                         //ignoreCase = true
                     )
-                }
+                }?.description ?? ""
             )
         }
         return windDirections.joined(separator: "")
     }
 
-    var uvIndexColor: UIColor {
+    var uvIndexColor: UIColor? {
         switch Int(uv ?? 0.0) {
         case 0...2:
             return CustomColor.greenColor
@@ -131,7 +128,7 @@ struct CurrentWeatherDataModel: Codable {
         default:
             index = 4
         }
-        return uvIndexLevelsArray[index]
+        return uvIndexLevelsArray[index].description
     }
     
 }

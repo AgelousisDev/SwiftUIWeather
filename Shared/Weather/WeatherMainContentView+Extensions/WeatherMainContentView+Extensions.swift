@@ -19,15 +19,15 @@ extension WeatherMainContentView {
         @State var isLoading = false
         
         @State var alertState = false
-        @State var alertTuple: (String?, String?) = (null, null)
+        @State var alertTuple: (String?, String?) = (nil, nil)
         
         func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>) {
             isLoading = true
             RequestManager.requestWeatherForecase(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
                 successModelBlock(weatherResponseModel)
             }, errorBlock: { errorModel in
-                alertsState = true
-                alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)
+                self.alertState = true
+                self.alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)
             })
         }
         

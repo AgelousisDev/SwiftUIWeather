@@ -10,11 +10,11 @@ import UIKit
 
 struct CustomColor {
     
-    static let blueColor = UIColor.init(hex: 0x1E88E5)
-    static let tealColor = UIColor.init(hex: 0x018786)
-    static let greenColor = UIColor.init(hex: 0x31AD31)
-    static let yellowDarkerColor = UIColor.init(hex: 0xFCE293)
-    static let redColor = UIColor.init(hex: 0xE57373)
-    static let orangeColor = UIColor.init(hex: 0xfb8c00)
-    static let violetColor = UIColor.init(hex: 0x673ab7)
+    static let blueColor = "#1E88E5".toColor()
+    static let tealColor = "#018786".toColor()
+    static let greenColor = "#31AD31".toColor()
+    static let yellowDarkerColor = "#FCE293".toColor()
+    static let redColor = "#E57373".toColor()
+    static let orangeColor = "#fb8c00".toColor()
+    static let violetColor = "#673ab7".toColor()
 }

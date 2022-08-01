@@ -25,4 +25,12 @@ struct ApiConstants {
         static let APPLICATION_JSON = "application/json;charset=UTF-8"
     }
     
+    struct Parameters {
+        static let WEATHER_API_KEY_PARAM = "key"
+        static let LOCATION_PARAM = "q"
+        static let DAYS_PARAM = "days"
+        static let AIR_QUALITY_PARAM = "aqi"
+        static let ALERTS_STATE_PARAM = "alerts"
+    }
+    
 }

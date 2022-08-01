@@ -8,5 +8,6 @@
 import Foundation
 
 struct WeatherForecastDataModel: Codable {
+    let forecastday: [WeatherForecastDayDataModel]?
     
 }
