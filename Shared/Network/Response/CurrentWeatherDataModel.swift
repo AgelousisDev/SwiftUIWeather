@@ -47,8 +47,8 @@ struct CurrentWeatherDataModel: Codable {
         return is_day == 1
     }
 
-    var dayStateAnimationResourceId: Int {
-        return isDayBool ? 0/*R.raw.day_animation*/ : 1//R.raw.night_animation
+    var dayStateAnimation: String {
+        return isDayBool ? "day_animation" : "night_animation"
     }
     
     var windStateColor: UIColor? {

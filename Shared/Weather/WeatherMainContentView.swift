@@ -11,9 +11,13 @@ struct WeatherMainContentView: View {
     
     @StateObject private var viewModel = WeatherViewModel()
     
+    init() {
+        requestLocation()
+    }
+    
     var body: some View {
         NavigationView {
-            TabView(selection: $viewModel.selectedTab) {
+            TabView(selection: $viewModel.selectedTab.wrappedValue?.rawValue ?? WeatherNavigationScreen.Today.rawValue) {
                 TodayContentView()
                 TomorrowContentView()
                 NextDaysContentView()
@@ -38,7 +42,12 @@ struct WeatherMainContentView: View {
                 }
             )
         }
+        .environmentObject(viewModel)
     }
+}
+
+func requestLocation() {
+    LocationModel().requestAuthorisation()
 }
 
 struct ContentView_Previews: PreviewProvider {

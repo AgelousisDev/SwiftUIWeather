@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct TodayContentView: View {
+    
+    @EnvironmentObject var viewModel: WeatherViewModel
+    
     var body: some View {
         Text(WeatherNavigationScreen.Today.label)
             .tabItem {

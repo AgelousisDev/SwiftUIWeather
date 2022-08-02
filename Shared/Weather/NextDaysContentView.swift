@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct NextDaysContentView: View {
+    
+    var viewModel: WeatherViewModel?
+    
     var body: some View {
         Text(WeatherNavigationScreen.NextDays.label)
             .tabItem {
