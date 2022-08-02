@@ -45,4 +45,12 @@ extension String {
             return UIColor(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
         }
     
+    func toDate(
+        pattern: String = Constants.SERVER_DATE_TIME_FORMAT
+    )-> Date? {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = pattern
+        return dateFormatterGet.date(from: self)
+    }
+    
 }

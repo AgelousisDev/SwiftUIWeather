@@ -82,7 +82,7 @@ struct CurrentWeatherDataModel: Codable {
         }
     }
 
-    var getWindDirection: String {
+    var windDirection: String {
         let windDirectionsArray = "key_wind_directions_array".localized.split(separator: "|")
         var windDirections = [String]()
         for windDirection in Array(Set(wind_dir ?? ""))[0...1] {
