@@ -13,16 +13,19 @@ struct TodayContentView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
-        Text(WeatherNavigationScreen.Today.label)
-            .tabItem {
-                Label(WeatherNavigationScreen.Today.label, systemImage: WeatherNavigationScreen.Today.icon)
-            }
-            .tag(WeatherNavigationScreen.Today.rawValue)
+        VStack {
+            CalendarView()
+        }
+        .tabItem {
+            Label(WeatherNavigationScreen.Today.label, systemImage: WeatherNavigationScreen.Today.icon)
+        }
+        .tag(WeatherNavigationScreen.Today.rawValue)
     }
 }
 
 struct TodayContentView_Previews: PreviewProvider {
     static var previews: some View {
         TodayContentView()
+            .environmentObject(WeatherViewModel())
     }
 }

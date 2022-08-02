@@ -8,9 +8,9 @@
 import Foundation
 
 struct AddressDataModel {
-    let countryName: String? = nil
-    let countryCode: String? = nil
-    let longitude: Double? = nil
-    let latitude: Double? = nil
-    let addressLine: String? = nil
+    let countryName: String?
+    let countryCode: String?
+    let longitude: Double?
+    let latitude: Double?
+    let addressLine: String?
 }

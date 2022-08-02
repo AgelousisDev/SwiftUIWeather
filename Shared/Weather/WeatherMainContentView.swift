@@ -10,14 +10,11 @@ import SwiftUI
 struct WeatherMainContentView: View {
     
     @StateObject private var viewModel = WeatherViewModel()
-    
-    init() {
-        requestLocation()
-    }
+    @StateObject private var locationModel = LocationModel()
     
     var body: some View {
         NavigationView {
-            TabView(selection: $viewModel.selectedTab.wrappedValue?.rawValue ?? WeatherNavigationScreen.Today.rawValue) {
+            TabView(selection: $viewModel.selectedTab) {
                 TodayContentView()
                 TomorrowContentView()
                 NextDaysContentView()
@@ -43,11 +40,23 @@ struct WeatherMainContentView: View {
             )
         }
         .environmentObject(viewModel)
+        .environmentObject(locationModel)
+        .onAppear {
+            requestLocation()
+            locationModel.$addressDataModel.sink { addressDataModel in
+                if let unwrappedAddressDataModel = addressDataModel {
+                    
+                    viewModel.requestForecast(location: String(format: "%f,%f", unwrappedAddressDataModel.latitude ?? 0, unwrappedAddressDataModel.longitude ?? 0), days: 7, airQualityState: true, alertsState: true
+                    )
+                }
+            }
+        }
     }
-}
-
-func requestLocation() {
-    LocationModel().requestAuthorisation()
+    
+    private func requestLocation() {
+        locationModel.requestAuthorisation()
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

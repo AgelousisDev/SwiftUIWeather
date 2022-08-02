@@ -10,23 +10,20 @@ import SwiftUI
 
     
 class WeatherViewModel: ObservableObject {
+                
+    @Published var selectedTab = WeatherNavigationScreen.Today.rawValue
         
-    @Published var addressDataModel: AddressDataModel?
+    @Published var isLoading = false
         
-    @State var selectedTab = WeatherNavigationScreen.Today
-        
-    @State var isLoading = false
-        
-    @State var alertState = false
-    @State var alertTuple: (String?, String?) = (nil, nil)
+    @Published var alertState = false
+    @Published var alertTuple: (String?, String?) = (nil, nil)
     
-    @State var weatherResponseModel: WeatherResponseModel?
+    @Published var weatherResponseModel: WeatherResponseModel?
         
-    func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>) {
+    func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool) {
         isLoading = true
         RequestManager.requestWeatherForecase(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
             self.weatherResponseModel = weatherResponseModel
-            successModelBlock(weatherResponseModel)
         }, errorBlock: { errorModel in
             self.alertState = true
             self.alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)

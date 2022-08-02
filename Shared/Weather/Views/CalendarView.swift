@@ -13,24 +13,31 @@ struct CalendarView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     @State var displayDateTime: String?
     
-    init() {
-        switch viewModel.$selectedTab.wrappedValue {
+    var body: some View {
+        GeometryReader { geo in
+            HStack(alignment: VerticalAlignment.center) {
+                Text(String(format: "key_last_updated_with_date_label".localized, displayDateTime ?? ""))
+                    .font(.headline)
+                    .frame(width: geo.size.width * 0.7, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                LottieView(lottieFile: $viewModel.weatherResponseModel.wrappedValue?.current?.dayStateAnimation ?? "day_animation")
+                    .frame(width: geo.size.width * 0.2, height: 50, alignment: .center)
+            }
+            .padding()
+            .onAppear {
+                configureDisplayDateTime()
+            }
+        }
+    }
+    
+    private func configureDisplayDateTime() {
+        switch WeatherNavigationScreen(rawValue: viewModel.selectedTab) {
         case .Today:
-            displayDateTime = viewModel.$weatherResponseModel.wrappedValue?.current?.last_updated?.toDate(pattern: Constants.SERVER_DATE_TIME_FORMAT)?.toDisplayDate(pattern: Constants.DISPLAY_DATE_TIME_FORMAT)
+            displayDateTime = viewModel.weatherResponseModel?.current?.last_updated?.toDate(pattern: Constants.SERVER_DATE_TIME_FORMAT)?.toDisplayDate(pattern: Constants.DISPLAY_DATE_TIME_FORMAT)
         case .Tomorrow:
             displayDateTime = viewModel.weatherResponseModel?.current?.last_updated?.toDate(pattern: Constants.SERVER_DATE_TIME_FORMAT)?.toDisplayDate(pattern: Constants.DISPLAY_DATE_TIME_FORMAT, plusDays: 1)
         default:
             displayDateTime = nil
-        }
-    }
-    
-    var body: some View {
-        HStack {
-            Text(String(format: "key_last_updated_with_date_label", displayDateTime ?? ""))
-                .font(.title2)
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-            LottieView(lottieFile: viewModel.$weatherResponseModel.wrappedValue?.current?.dayStateAnimation ?? "day_animation")
-                .frame(width: 300, height: 300)
         }
     }
     
@@ -39,5 +46,6 @@ struct CalendarView: View {
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarView()
+            .environmentObject(WeatherViewModel())
     }
 }
