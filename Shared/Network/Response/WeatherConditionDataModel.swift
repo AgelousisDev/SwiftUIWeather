@@ -17,7 +17,7 @@ struct WeatherConditionDataModel: Codable {
             return icon
         }
         else {
-            return String(format: "%@%@", icon ?? "")
+            return String(format: "%@%@", "https://", icon ?? "")
         }
     }
     
