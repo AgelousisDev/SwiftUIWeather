@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeatherMainContentView: View {
     
-    @StateObject private var viewModel = WeatherViewModel()
+    @StateObject var viewModel = WeatherViewModel()
     @StateObject private var locationModel = LocationModel()
     
     var body: some View {
@@ -43,17 +43,11 @@ struct WeatherMainContentView: View {
         .environmentObject(locationModel)
         .onAppear {
             requestLocation()
-            locationModel.$addressDataModel.sink { addressDataModel in
-                if let unwrappedAddressDataModel = addressDataModel {
-                    
-                    viewModel.requestForecast(location: String(format: "%f,%f", unwrappedAddressDataModel.latitude ?? 0, unwrappedAddressDataModel.longitude ?? 0), days: 7, airQualityState: true, alertsState: true
-                    )
-                }
-            }
         }
     }
     
     private func requestLocation() {
+        locationModel.locationModelProtocol = self
         locationModel.requestAuthorisation()
     }
     

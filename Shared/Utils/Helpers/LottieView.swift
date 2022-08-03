@@ -5,33 +5,52 @@
 //  Created by Vagelis Agelousis on 02/08/2022.
 //
 
-import Foundation
-
 import SwiftUI
 import Lottie
 
 struct LottieView: UIViewRepresentable {
-    let lottieFile: String
-
+    typealias UIViewType = UIView
+    let filename: String
     let animationView = AnimationView()
+    let isPaused: Bool
 
-    func makeUIView(context: Context) -> some UIView {
+    func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
 
-        animationView.animation = Animation.named(lottieFile)
+        let animation = Animation.named(filename)
+        animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
-        animationView.play()
-
-        view.addSubview(animationView)
+        animationView.loopMode = .loop
 
         animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        animationView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        view.addSubview(animationView)
+
+        NSLayoutConstraint.activate([
+            animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
+        ])
 
         return view
     }
 
-    func updateUIView(_ uiView: UIViewType, context: Context) {
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
+        if isPaused {
+            context.coordinator.parent.animationView.pause()
+        } else {
+            context.coordinator.parent.animationView.play()
 
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject {
+        var parent: LottieView
+
+        init(_ parent: LottieView) {
+            self.parent = parent
+        }
     }
 }

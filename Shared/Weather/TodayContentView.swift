@@ -14,7 +14,11 @@ struct TodayContentView: View {
     
     var body: some View {
         VStack {
-            CalendarView()
+            if viewModel.weatherResponseModel != nil || isOnPreview {
+            
+                CalendarView()
+            }
+            ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
         }
         .tabItem {
             Label(WeatherNavigationScreen.Today.label, systemImage: WeatherNavigationScreen.Today.icon)

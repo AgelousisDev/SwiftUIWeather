@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct CurrentWeatherDataModel: Codable {
-    var last_updated_epoch: CLong? = nil
+    var last_updated_epoch: Int? = nil
     var last_updated: String? = nil
     var temp_c: Double? = nil
     var temp_f: Double? = nil

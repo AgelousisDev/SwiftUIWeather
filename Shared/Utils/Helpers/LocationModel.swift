@@ -13,6 +13,7 @@ class LocationModel: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var addressDataModel: AddressDataModel?
+    var locationModelProtocol: LocationModelProtocol?
 
     override init() {
         super.init()
@@ -44,6 +45,7 @@ extension LocationModel: CLLocationManagerDelegate {
         getAddressFromLatLon(pdblLatitude: locValue.latitude, withLongitude: locValue.longitude) { addressDataModel in
             self.addressDataModel = addressDataModel
             manager.stopUpdatingLocation()
+            self.locationModelProtocol?.onLocationAddressReady(addressDataModel: addressDataModel)
         }
     }
     

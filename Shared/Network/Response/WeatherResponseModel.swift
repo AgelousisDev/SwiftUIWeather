@@ -10,5 +10,5 @@ import Foundation
 struct WeatherResponseModel: Codable {
     let location: WeatherLocationDataModel?
     let current: CurrentWeatherDataModel?
-    let forecast: WeatherForecastDataModel?
+    //let forecast: WeatherForecastDataModel?
 }
