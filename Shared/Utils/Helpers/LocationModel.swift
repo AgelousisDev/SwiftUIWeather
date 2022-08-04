@@ -37,6 +37,7 @@ extension LocationModel: CLLocationManagerDelegate {
             || status == CLAuthorizationStatus.authorizedWhenInUse {
             
             manager.requestLocation()
+            manager.startUpdatingLocation()
         }
     }
     
@@ -83,11 +84,12 @@ extension LocationModel: CLLocationManagerDelegate {
                         addressString = addressString + (pm?.locality ?? "") + ", "
                     }
                     if pm?.country != nil {
-                        addressString = addressString + (pm?.country ?? "") + ", "
+                        addressString = addressString + (pm?.country ?? "")
                     }
-                    if pm?.postalCode != nil {
+                    /*if pm?.postalCode != nil {
                         addressString = addressString + (pm?.postalCode ?? "") + " "
-                    }
+                    }*/
+                    
                     successModelBlock(AddressDataModel(countryName: pm?.country, countryCode: pm?.isoCountryCode, longitude: pdblLongitude, latitude: pdblLatitude, addressLine: addressString))
               }
         })

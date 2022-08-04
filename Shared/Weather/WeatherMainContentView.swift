@@ -19,7 +19,8 @@ struct WeatherMainContentView: View {
                 TomorrowContentView()
                 NextDaysContentView()
             }
-            .navigationBarTitle("key_app_name_label".localized)
+            .navigationBarTitle(viewModel.navigationBarTitle ?? "key_app_name_label".localized)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 trailing: HStack {
                     Button(

@@ -34,6 +34,14 @@ struct CurrentWeatherDataModel: Codable {
     var gust_kph: Double? = nil
     var air_quality: WeatherAirQualityDataModel? = nil
     
+    var humidityDoubleValue: Double {
+        if humidity ?? 0 > 0 {
+            return Double(humidity ?? 0) / 100
+        }
+        else {
+            return 0.0
+        }
+    }
     
     var currentTemperatureUnitFormatted: String {
         return String(format: "%d °C", Int(temp_c ?? 0))

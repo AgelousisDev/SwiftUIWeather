@@ -12,7 +12,7 @@ struct DotView: View {
     
     var body: some View {
         Circle()
-            .background(Circle().foregroundColor(.accentColor))
+            .foregroundColor(.accentColor)
     }
     
 }
@@ -21,5 +21,6 @@ struct DotView_Previews: PreviewProvider {
     
     static var previews: some View {
         DotView()
+            .frame(width: 10, height: 10)
     }
 }

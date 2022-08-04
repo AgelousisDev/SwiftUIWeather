@@ -11,6 +11,7 @@ import SwiftUI
 class WeatherViewModel: ObservableObject {
                 
     @Published var selectedTab = WeatherNavigationScreen.Today.rawValue
+    @Published var navigationBarTitle: String?
         
     @Published var isLoading = false
         

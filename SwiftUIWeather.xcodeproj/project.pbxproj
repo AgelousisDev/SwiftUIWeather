@@ -98,6 +98,10 @@
 		71D3B73E2898D35A00969292 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 71D3B73D2898D35A00969292 /* Lottie */; };
 		71D3B7412898D37E00969292 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3B7402898D37E00969292 /* Constants.swift */; };
 		71D3B7422898D37E00969292 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3B7402898D37E00969292 /* Constants.swift */; };
+		71E525F7289C3C9E0079A1EE /* DoubleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */; };
+		71E525F8289C3C9E0079A1EE /* DoubleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */; };
+		71E525FA289C41D90079A1EE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F9289C41D90079A1EE /* CircularProgressView.swift */; };
+		71E525FB289C41D90079A1EE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F9289C41D90079A1EE /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +177,8 @@
 		71CBFF6F28990CFB00143EF6 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		71CBFF722899158100143EF6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		71D3B7402898D37E00969292 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleUtils.swift; sourceTree = "<group>"; };
+		71E525F9289C41D90079A1EE /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 			children = (
 				71079361289A427B00FC2699 /* ActivityIndicatorView.swift */,
 				712105F3289B793C003089D5 /* DotView.swift */,
+				71E525F9289C41D90079A1EE /* CircularProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +356,7 @@
 				712C28EE2890EBCC002AD4CF /* StringUtils.swift */,
 				71CBFF722899158100143EF6 /* DateUtils.swift */,
 				71079364289A5E7300FC2699 /* Extensions.swift */,
+				71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -667,6 +675,7 @@
 				713783B6289292D9006FFC87 /* WeatherLocationDataModel.swift in Sources */,
 				71C79EBB2897CDB2004986E3 /* CurrentDayWeatherDataModel.swift in Sources */,
 				713783B9289292F8006FFC87 /* CurrentWeatherDataModel.swift in Sources */,
+				71E525F7289C3C9E0079A1EE /* DoubleUtils.swift in Sources */,
 				7131BDC02899216700803B2A /* LocationModel.swift in Sources */,
 				71C79EBE2897CDCB004986E3 /* WeatherAstroDataModel.swift in Sources */,
 				711901A9289107E300E868E9 /* TodayContentView.swift in Sources */,
@@ -689,6 +698,7 @@
 				7125F75A28939D9B00F72D6F /* CustomColor.swift in Sources */,
 				712105F4289B793C003089D5 /* DotView.swift in Sources */,
 				713783B328929258006FFC87 /* WeatherResponseModel.swift in Sources */,
+				71E525FA289C41D90079A1EE /* CircularProgressView.swift in Sources */,
 				71079362289A427B00FC2699 /* ActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,6 +721,7 @@
 				713783B7289292D9006FFC87 /* WeatherLocationDataModel.swift in Sources */,
 				717485A028991AFF001E239F /* CustomImage.swift in Sources */,
 				71C79EBF2897CDCB004986E3 /* WeatherAstroDataModel.swift in Sources */,
+				71E525F8289C3C9E0079A1EE /* DoubleUtils.swift in Sources */,
 				7131BDC12899216700803B2A /* LocationModel.swift in Sources */,
 				712C28F02890ED76002AD4CF /* WeatherNavigationScreen.swift in Sources */,
 				713783AA28928D85006FFC87 /* RequestManager.swift in Sources */,
@@ -733,6 +744,7 @@
 				7125F75B28939D9B00F72D6F /* CustomColor.swift in Sources */,
 				712105F5289B793C003089D5 /* DotView.swift in Sources */,
 				713783B428929258006FFC87 /* WeatherResponseModel.swift in Sources */,
+				71E525FB289C41D90079A1EE /* CircularProgressView.swift in Sources */,
 				71079363289A427B00FC2699 /* ActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
