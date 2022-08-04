@@ -14,10 +14,13 @@ struct TodayContentView: View {
     
     var body: some View {
         VStack {
-            if viewModel.weatherResponseModel != nil || isOnPreview {
+            if viewModel.weatherResponseModel != nil && !viewModel.isLoading || isOnPreview {
                 
                 CalendarRowView()
                 CurrentTemperatureRowView()
+            }
+            if viewModel.isLoading {
+                Spacer()
             }
             ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
             Spacer()

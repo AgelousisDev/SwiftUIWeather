@@ -15,18 +15,22 @@ struct CurrentTemperatureRowView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             temperatureView
-            
-            
+            DotView()
+                .frame(width: 8, height: 8)
         }
     }
     
     private var temperatureView: some View {
         VStack(alignment: .center, spacing: 8) {
-            HStack(alignment: .center, spacing: 16) {
+            HStack(alignment: .center, spacing: 24) {
                 Text(viewModel.weatherResponseModel?.current?.currentTemperatureUnitFormatted ?? "")
                     .font(.title2)
-                AsyncImage(url: URL(string: viewModel.weatherResponseModel?.current?.condition?.iconUrl ?? ""))
-                    .frame(width: 40, height: 40)
+                AsyncImage(url: URL(string: viewModel.weatherResponseModel?.current?.condition?.iconUrl ?? ""), content: { image in
+                    image.resizable()
+                }, placeholder: {
+                    ProgressView()
+                })
+                .frame(width: 40, height: 40)
             }
             Text(viewModel.weatherResponseModel?.current?.condition?.text ?? "")
                 .font(.body)
