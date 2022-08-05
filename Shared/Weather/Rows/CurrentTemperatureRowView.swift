@@ -54,12 +54,13 @@ struct CurrentTemperatureRowView: View {
                 .font(.title2)
                 .foregroundColor(Color(viewModel.weatherResponseModel?.current?.windStateColor ?? UIColor.black))
             
-            VStack(alignment: .center, spacing: 16) {
+            VStack(alignment: .center, spacing: 8) {
                 if viewModel.weatherResponseModel?.current?.wind_degree != nil, let arrowImage = CustomImage.arrowDirectionDown {
                     
-                    Image("ic_arrow_direction_down")
-                        .frame(width: 30, height: 30)
-                        .tint(Color.gray)
+                    Image(uiImage: arrowImage)
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(Color.gray)
                         .rotationEffect(Angle.degrees(Double(viewModel.weatherResponseModel?.current?.wind_degree ?? 0)))
                     
                     Text("key_km_hourly_label".localized)
