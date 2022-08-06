@@ -29,11 +29,11 @@ enum WeatherNavigationScreen: String {
     var icon: String {
         switch self {
         case .Today:
-            return "calendar.circle"
+            return "ic_today"
         case .Tomorrow:
-            return "calendar.circle"
+            return "ic_tomorrow"
         case .NextDays:
-            return "calendar.circle"
+            return "ic_next_days"
         }
     }
     

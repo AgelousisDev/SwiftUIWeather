@@ -26,7 +26,7 @@ struct TodayContentView: View {
             Spacer()
         }
         .tabItem {
-            Label(WeatherNavigationScreen.Today.label, systemImage: WeatherNavigationScreen.Today.icon)
+            Label(WeatherNavigationScreen.Today.label, image: WeatherNavigationScreen.Today.icon)
         }
         .tag(WeatherNavigationScreen.Today.rawValue)
     }

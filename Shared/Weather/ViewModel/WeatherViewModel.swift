@@ -25,6 +25,9 @@ class WeatherViewModel: ObservableObject {
         RequestManager.requestWeatherForecase(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
             self.isLoading = false
             self.weatherResponseModel = weatherResponseModel
+            if self.navigationBarTitle == nil {
+                self.navigationBarTitle = weatherResponseModel.location?.regionCountry
+            }
         }, errorBlock: { errorModel in
             self.isLoading = false
             self.alertState = true

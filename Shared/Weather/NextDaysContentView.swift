@@ -15,7 +15,7 @@ struct NextDaysContentView: View {
     var body: some View {
         Text(WeatherNavigationScreen.NextDays.label)
             .tabItem {
-                Label(WeatherNavigationScreen.NextDays.label, systemImage: WeatherNavigationScreen.NextDays.icon)
+                Label(WeatherNavigationScreen.NextDays.label, image: WeatherNavigationScreen.NextDays.icon)
             }
             .tag(WeatherNavigationScreen.NextDays.rawValue)
     }

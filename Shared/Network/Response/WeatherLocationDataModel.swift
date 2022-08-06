@@ -14,7 +14,7 @@ struct WeatherLocationDataModel: Codable {
         let lat: Double?
         let lon: Double?
         let tz_id: String?
-        let localtime_epoch: CLong?
+        let localtime_epoch: Int?
         let localtime: String?
 
     var regionCountry: String {

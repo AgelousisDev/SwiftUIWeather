@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct WeatherHourlyDataModel: Codable {
-    var time_epoch: CLong? = nil
+    var time_epoch: Clong? = nil
     var time: String? = nil
     var temp_c: Double? = nil
     var temp_f: Double? = nil

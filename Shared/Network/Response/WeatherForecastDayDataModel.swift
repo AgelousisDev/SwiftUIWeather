@@ -9,7 +9,7 @@ import Foundation
 
 struct WeatherForecastDayDataModel: Codable {
     let date: String?
-    let date_epoch: String?
+    let date_epoch: Double?
     let day: CurrentDayWeatherDataModel?
     let astro: WeatherAstroDataModel?
     let hour: [WeatherHourlyDataModel]?

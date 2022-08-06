@@ -15,7 +15,7 @@ struct TomorrowContentView: View {
     var body: some View {
         Text(WeatherNavigationScreen.Tomorrow.label)
             .tabItem {
-                Label(WeatherNavigationScreen.Tomorrow.label, systemImage: WeatherNavigationScreen.Tomorrow.icon)
+                Label(WeatherNavigationScreen.Tomorrow.label, image: WeatherNavigationScreen.Tomorrow.icon)
             }
             .tag(WeatherNavigationScreen.Tomorrow.rawValue)
     }

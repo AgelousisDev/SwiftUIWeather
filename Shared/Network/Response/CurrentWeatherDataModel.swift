@@ -136,9 +136,9 @@ struct CurrentWeatherDataModel: Codable {
     }
     
     var uvIndexExposureLevel: String {
-        let uvIndexLevelsArray = "key_uv_index_levels_array".split(separator: "|")
+        let uvIndexLevelsArray = "key_uv_index_levels_array".localized.split(separator: "|")
         var index = 0
-        switch Int(uv ?? 0) {
+        switch Int(uv ?? 0.0) {
         case 0...2:
             index = 0
         case 3...5:

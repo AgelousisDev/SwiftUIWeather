@@ -20,7 +20,19 @@ struct CurrentTemperatureRowView: View {
             windView
             DotView()
                 .frame(width: 8, height: 8)
+            uvIndexView
+            DotView()
+                .frame(width: 8, height: 8)
             humidityView
+            
+            HeaderView(header: "key_temperature_label".localized)
+                .padding(.top, 16)
+                .padding(.leading, 16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            LazyHStack {
+                ForEach(viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remai, content: <#T##(_.Element) -> _#>)
+            }
         }
     }
     
@@ -80,10 +92,30 @@ struct CurrentTemperatureRowView: View {
                 Text(String(format: "key_now_with_value_label".localized, viewModel.weatherResponseModel?.current?.windDirection ?? ""))
                     .font(Font.callout)
                     .fontWeight(.ultraLight)
-                    .foregroundColor(Color(viewModel.weatherResponseModel?.current?.windStateColor ?? UIColor.black))
             }
             
             LottieView(filename: "wind_animation", isPaused: false)
+                .frame(width: 50, height: 50)
+        }
+    }
+    
+    private var uvIndexView: some View {
+        HStack(alignment: .center, spacing: 16) {
+            
+            VerticalProgressBar(width: 15, height: 100, value: Float(viewModel.weatherResponseModel?.current?.uv ?? 0.0) / 10)
+            
+            VStack(alignment: .center, spacing: 8) {
+                
+                Text("key_uv_index_label".localized)
+                    .font(.body)
+                
+                Text(String(format: "key_uv_index_value_label".localized, viewModel.weatherResponseModel?.current?.uvIndexExposureLevel ?? "", Int(viewModel.weatherResponseModel?.current?.uv ?? 0.0)))
+                    .font(.body)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color(viewModel.weatherResponseModel?.current?.uvIndexColor ?? UIColor.black))
+            }
+            
+            LottieView(filename: "sun_uv_animation", isPaused: false)
                 .frame(width: 50, height: 50)
         }
     }
@@ -116,7 +148,7 @@ struct CurrentTemperatureRowView_Previews: PreviewProvider {
     
     private static func getWeatherViewModel() -> WeatherViewModel {
         let weatherViewModel = WeatherViewModel()
-        weatherViewModel.weatherResponseModel = WeatherResponseModel(location: nil, current: CurrentWeatherDataModel(last_updated_epoch: 0, last_updated: nil, temp_c: 50, temp_f: 90, is_day: 1, condition: WeatherConditionDataModel(text: "Sunny", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/The_Sun_in_white_light.jpg", code: nil), wind_mph: 20.0, wind_kph: 20.0, wind_degree: 180, wind_dir: "SW", pressure_mb: 1.0, pressure_in: 2.0, precip_mm: 3.0, precip_in: 4.0, humidity: 50, cloud: 1, feelslike_c: 25.0, feelslike_f: 40.0, vis_km: 12.0, vis_miles: 18.0, uv: 9, gust_mph: 1.0, gust_kph: 0.5, air_quality: nil))
+        weatherViewModel.weatherResponseModel = WeatherResponseModel(location: nil, current: CurrentWeatherDataModel(last_updated_epoch: 0, last_updated: nil, temp_c: 50, temp_f: 90, is_day: 1, condition: WeatherConditionDataModel(text: "Sunny", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/The_Sun_in_white_light.jpg", code: nil), wind_mph: 20.0, wind_kph: 20.0, wind_degree: 180, wind_dir: "SW", pressure_mb: 1.0, pressure_in: 2.0, precip_mm: 3.0, precip_in: 4.0, humidity: 50, cloud: 1, feelslike_c: 25.0, feelslike_f: 40.0, vis_km: 12.0, vis_miles: 18.0, uv: 8.0, gust_mph: 1.0, gust_kph: 0.5, air_quality: nil), forecast: nil)
         return weatherViewModel
     }
     
