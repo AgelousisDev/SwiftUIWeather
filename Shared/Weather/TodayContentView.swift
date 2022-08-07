@@ -23,7 +23,9 @@ struct TodayContentView: View {
                 Spacer()
             }
             ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
-            Spacer()
+            if viewModel.isLoading {
+                Spacer()
+            }
         }
         .tabItem {
             Label(WeatherNavigationScreen.Today.label, image: WeatherNavigationScreen.Today.icon)

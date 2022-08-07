@@ -13,26 +13,32 @@ struct CurrentTemperatureRowView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
-            temperatureView
-            DotView()
-                .frame(width: 8, height: 8)
-            windView
-            DotView()
-                .frame(width: 8, height: 8)
-            uvIndexView
-            DotView()
-                .frame(width: 8, height: 8)
-            humidityView
-            
-            HeaderView(header: "key_temperature_label".localized)
-                .padding(.top, 16)
-                .padding(.leading, 16)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            LazyHStack {
-                ForEach(viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remai, content: <#T##(_.Element) -> _#>)
+        ScrollView {
+            VStack(alignment: .center, spacing: 16) {
+                temperatureView
+                DotView()
+                    .frame(width: 8, height: 8)
+                windView
+                DotView()
+                    .frame(width: 8, height: 8)
+                uvIndexView
+                DotView()
+                    .frame(width: 8, height: 8)
+                humidityView
+                
+                HeaderView(header: "key_temperature_label".localized)
+                    .padding(.top, 16)
+                    .padding(.leading, 16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                HStack {
+                    ForEach(viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? []) { weatherHourlyDataModel in
+                         
+                        HourlyConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
+                        }
+                }
             }
+
         }
     }
     

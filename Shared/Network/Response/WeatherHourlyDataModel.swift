@@ -8,40 +8,45 @@
 import Foundation
 import UIKit
 
-struct WeatherHourlyDataModel: Codable {
-    var time_epoch: Clong? = nil
-    var time: String? = nil
-    var temp_c: Double? = nil
-    var temp_f: Double? = nil
-    var is_day: Int? = nil
-    var condition: WeatherConditionDataModel? = nil
-    var wind_mph: Double? = nil
-    var wind_kph: Double? = nil
-    var wind_degree: Int? = nil
-    var wind_dir: String? = nil
-    var pressure_mb: Double? = nil
-    var pressure_in: Double? = nil
-    var precip_mm: Double? = nil
-    var precip_in: Double? = nil
-    var humidity: Int? = nil
-    var cloud: Int? = nil
-    var feelslike_c: Double? = nil
-    var feelslike_f: Double? = nil
-    var windchill_c: Double? = nil
-    var windchill_f: Double? = nil
-    var heatindex_c: Double? = nil
-    var heatindex_f: Double? = nil
-    var dewpoint_c: Double? = nil
-    var dewpoint_f: Double? = nil
-    var will_it_rain: Int? = nil
-    var chance_of_rain: Int? = nil
-    var will_it_snow: Int? = nil
-    var chance_of_snow: Int? = nil
-    var vis_km: Double? = nil
-    var vis_miles: Double? = nil
-    var gust_mph: Double? = nil
-    var gust_kph: Double? = nil
-    var uv: Double? = nil
+struct WeatherHourlyDataModel: Codable, Identifiable {
+    
+    var id: String {
+        return UUID().description
+    }
+    
+    let time_epoch: CLong?
+    let time: String?
+    let temp_c: Double?
+    let temp_f: Double?
+    let is_day: Int?
+    let condition: WeatherConditionDataModel?
+    let wind_mph: Double?
+    let wind_kph: Double?
+    let wind_degree: Int?
+    let wind_dir: String?
+    let pressure_mb: Double?
+    let pressure_in: Double?
+    let precip_mm: Double?
+    let precip_in: Double?
+    let humidity: Int?
+    let cloud: Int?
+    let feelslike_c: Double?
+    let feelslike_f: Double?
+    let windchill_c: Double?
+    let windchill_f: Double?
+    let heatindex_c: Double?
+    let heatindex_f: Double?
+    let dewpoint_c: Double?
+    let dewpoint_f: Double?
+    let will_it_rain: Int?
+    let chance_of_rain: Int?
+    let will_it_snow: Int?
+    let chance_of_snow: Int?
+    let vis_km: Double?
+    let vis_miles: Double?
+    let gust_mph: Double?
+    let gust_kph: Double?
+    let uv: Double?
     
     var currentTemperatureUnitFormatted: String {
         return String(format: "%d °C", Int(temp_c ?? 0))
