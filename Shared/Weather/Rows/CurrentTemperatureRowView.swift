@@ -13,32 +13,17 @@ struct CurrentTemperatureRowView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .center, spacing: 16) {
-                temperatureView
-                DotView()
-                    .frame(width: 8, height: 8)
-                windView
-                DotView()
-                    .frame(width: 8, height: 8)
-                uvIndexView
-                DotView()
-                    .frame(width: 8, height: 8)
-                humidityView
-                
-                HeaderView(header: "key_temperature_label".localized)
-                    .padding(.top, 16)
-                    .padding(.leading, 16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack {
-                    ForEach(viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? []) { weatherHourlyDataModel in
-                         
-                        HourlyConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
-                        }
-                }
-            }
-
+        VStack(alignment: .center, spacing: 16) {
+            temperatureView
+            DotView()
+                .frame(width: 8, height: 8)
+            windView
+            DotView()
+                .frame(width: 8, height: 8)
+            uvIndexView
+            DotView()
+                .frame(width: 8, height: 8)
+            humidityView
         }
     }
     
@@ -108,7 +93,7 @@ struct CurrentTemperatureRowView: View {
     private var uvIndexView: some View {
         HStack(alignment: .center, spacing: 16) {
             
-            VerticalProgressBar(width: 15, height: 100, value: Float(viewModel.weatherResponseModel?.current?.uv ?? 0.0) / 10)
+            VerticalProgressBar(width: 15, height: 100, value: Float(viewModel.weatherResponseModel?.current?.uv ?? 0.0) / 10, color: Color(viewModel.weatherResponseModel?.current?.uvIndexColor ?? .gray))
             
             VStack(alignment: .center, spacing: 8) {
                 
@@ -129,7 +114,7 @@ struct CurrentTemperatureRowView: View {
     private var humidityView: some View {
         HStack(alignment: .center, spacing: 32) {
             
-            CircularProgressView(progress: (Double(viewModel.weatherResponseModel?.current?.humidityDoubleValue ?? 0.0)))
+            CircularProgressView(progress: (Double(viewModel.weatherResponseModel?.current?.humidityDoubleValue ?? 0.0)), color: Color(CustomColor.blueColor ?? .blue))
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .center, spacing: 8) {
@@ -143,7 +128,7 @@ struct CurrentTemperatureRowView: View {
                     .foregroundColor(Color.blue.opacity(0.8))
             }
             
-            LottieView(filename: "key_humidity_animation", isPaused: false)
+            LottieView(filename: "humidity_animation", isPaused: false)
                 .frame(width: 50, height: 50)
         }
     }

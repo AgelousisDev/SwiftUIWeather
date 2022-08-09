@@ -108,6 +108,8 @@
 		71E525F8289C3C9E0079A1EE /* DoubleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */; };
 		71E525FA289C41D90079A1EE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F9289C41D90079A1EE /* CircularProgressView.swift */; };
 		71E525FB289C41D90079A1EE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E525F9289C41D90079A1EE /* CircularProgressView.swift */; };
+		71ECD77928A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ECD77828A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift */; };
+		71ECD77A28A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ECD77828A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,7 @@
 		71D3B7402898D37E00969292 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleUtils.swift; sourceTree = "<group>"; };
 		71E525F9289C41D90079A1EE /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		71ECD77828A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherConditionsRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +253,7 @@
 				712AB5AC28993EC3003883F8 /* CalendarRowView.swift */,
 				7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */,
 				71503250289EE3EB006A7CF9 /* HourlyConditionRowView.swift */,
+				71ECD77828A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -691,6 +695,7 @@
 				7131BDC02899216700803B2A /* LocationModel.swift in Sources */,
 				71C79EBE2897CDCB004986E3 /* WeatherAstroDataModel.swift in Sources */,
 				711901A9289107E300E868E9 /* TodayContentView.swift in Sources */,
+				71ECD77928A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */,
 				71503251289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */,
 				71C79EC12897CE38004986E3 /* WeatherHourlyDataModel.swift in Sources */,
 				712AB5B028994427003883F8 /* LottieView.swift in Sources */,
@@ -740,6 +745,7 @@
 				7131BDC12899216700803B2A /* LocationModel.swift in Sources */,
 				712C28F02890ED76002AD4CF /* WeatherNavigationScreen.swift in Sources */,
 				713783AA28928D85006FFC87 /* RequestManager.swift in Sources */,
+				71ECD77A28A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */,
 				71503252289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */,
 				717485A128991B01001E239F /* WeatherHourlyDataModel.swift in Sources */,
 				712AB5B128994427003883F8 /* LottieView.swift in Sources */,

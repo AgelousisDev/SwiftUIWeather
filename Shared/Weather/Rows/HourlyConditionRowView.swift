@@ -20,24 +20,75 @@ struct HourlyConditionRowView: View {
                 Text(weatherHourlyDataModel.displayTime ?? "")
                     .font(.body)
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .padding(.top, 8)
             }
-            .foregroundColor(.white)
             .frame(height: 30)
             
+            Divider()
+            
             // Main Content
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 8) {
+                
                 AsyncImage(url: URL(string: weatherHourlyDataModel.condition?.iconUrl ?? ""))
                     .frame(width: 40, height: 40)
+                
+                Text(weatherHourlyDataModel.currentTemperatureUnitFormatted )
+                    .font(.title2)
+                
+                Text(weatherHourlyDataModel.condition?.text ?? "")
+                    .font(.subheadline)
+                    .fontWeight(.ultraLight)
+                    .foregroundColor(Color.gray)
+                
+                Text(String(format: "key_feels_like_label".localized, weatherHourlyDataModel.feelsLikeTemperatureUnitFormatted ))
+                    .font(.subheadline)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.gray)
+                
+                HStack(alignment: .center, spacing: 16) {
+                    
+                    Text(String(weatherHourlyDataModel.wind_kph?.toInt() ?? 0))
+                        .font(.title2)
+                        .foregroundColor(Color(weatherHourlyDataModel.windStateColor ?? UIColor.black))
+                    
+                    VStack(alignment: .center, spacing: 8) {
+                        if weatherHourlyDataModel.wind_degree != nil, let arrowImage = CustomImage.arrowDirectionDown {
+                            
+                            Image(uiImage: arrowImage)
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(Color.gray)
+                                .rotationEffect(Angle.degrees(Double(weatherHourlyDataModel.wind_degree ?? 0)))
+                            
+                            Text("key_km_hourly_label".localized)
+                                .font(.subheadline)
+                                .fontWeight(.light)
+                                .foregroundColor(Color.gray)
+                        }
+                    }
+                }
+                .padding(.top, 8)
+                
+                Text(weatherHourlyDataModel.windStateWarning ?? "")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .foregroundColor(Color(weatherHourlyDataModel.windStateColor ?? UIColor.black))
+                
+                Text(String(format: "key_now_with_value_label".localized, weatherHourlyDataModel.windDirection))
+                    .font(.callout)
+                    .fontWeight(.ultraLight)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 8)
+                    .multilineTextAlignment(.center)
+                
             }
-            .padding(.leading, 16)
-            .padding(.bottom, 16)
-            .padding(.trailing, 16)
-            .background(Color.accentColor)
-            .opacity(0.1)
+            .frame(maxWidth: .infinity)
         }
         .frame(width: 130)
-        .cornerRadius(8)
+        .overlay(
+                RoundedRectangle(cornerRadius: 8.0)
+                    .stroke(Color.accentColor, lineWidth: 1)
+            )
     }
     
 }

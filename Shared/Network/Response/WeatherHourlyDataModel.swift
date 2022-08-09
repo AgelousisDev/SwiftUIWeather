@@ -98,15 +98,29 @@ struct WeatherHourlyDataModel: Codable, Identifiable {
     var windDirection: String {
         let windDirectionsArray = "key_wind_directions_array".localized.split(separator: "|")
         var windDirections = [String]()
-        for windDirection in Array(Set(wind_dir ?? ""))[0...1] {
-            windDirections.append(
-                windDirectionsArray.first {
-                    $0.starts(
-                        with: windDirection.description
-                        //ignoreCase = true
-                    )
-                }?.description ?? ""
-            )
+        if (wind_dir?.count ?? 0) > 1 {
+            
+            for windDirection in Array(Set(wind_dir ?? ""))[0...1] {
+                windDirections.append(
+                    windDirectionsArray.first {
+                        $0.starts(
+                            with: windDirection.description
+                            //ignoreCase = true
+                        )
+                    }?.description ?? ""
+                )
+            }
+        }
+        else {
+            
+            if let windDir = wind_dir {
+                
+                windDirections.append(
+                    windDirectionsArray.first {
+                        $0.starts(with: windDir)
+                    }?.description ?? ""
+                )
+            }
         }
         return windDirections.joined(separator: "")
     }

@@ -16,15 +16,23 @@ struct TodayContentView: View {
         VStack {
             if viewModel.weatherResponseModel != nil && !viewModel.isLoading || isOnPreview {
                 
-                CalendarRowView()
-                CurrentTemperatureRowView()
+                ScrollView(.vertical) {
+                    // Calendar Item
+                    CalendarRowView()
+                    
+                    // Current Temperature
+                    CurrentTemperatureRowView()
+                    
+                    // Day Hourly Temperature
+                    HeaderView(header: "key_temperature_label".localized)
+                        .padding(.top, 16)
+                        .padding(.leading, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HourlyWeatherConditionsRowView(weatherHourlyDataModelList: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? [])
+                }
             }
             if viewModel.isLoading {
-                Spacer()
-            }
-            ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
-            if viewModel.isLoading {
-                Spacer()
+                ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
             }
         }
         .tabItem {
