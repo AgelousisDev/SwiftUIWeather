@@ -31,4 +31,10 @@ extension Date {
         }
     }
     
+    var fullTime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.FULL_TIME_FORMAT
+        return dateFormatter.string(from: self)
+    }
+    
 }

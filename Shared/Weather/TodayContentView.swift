@@ -29,6 +29,13 @@ struct TodayContentView: View {
                         .padding(.leading, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     HourlyWeatherConditionsRowView(weatherHourlyDataModelList: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? [])
+                    
+                    // Sun & Moon
+                    HeaderView(header: "key_sun_and_moon_label".localized)
+                        .padding(.top, 16)
+                        .padding(.leading, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    SunAndMoonRowView(sunAndMoonStates: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.astro?.availableSunAndMoonStates ?? [], weatherAstroDataModel: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.astro)
                 }
             }
             if viewModel.isLoading {

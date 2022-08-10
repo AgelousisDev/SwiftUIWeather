@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 
-enum SunAndMoonState {
+enum SunAndMoonState: CaseIterable, Identifiable {
     case SUNRISE
     case MOONRISE
     case SUNSET
     case MOON_SET
+    
+    var id: String {
+        return UUID().description
+    }
     
     var icon: UIImage? {
         switch self {

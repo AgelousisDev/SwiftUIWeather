@@ -17,7 +17,7 @@ struct HourlyWeatherConditionsRowView: View {
             HStack(alignment: .center, spacing: 16) {
                 ForEach(weatherHourlyDataModelList) { weatherHourlyDataModel in
                      
-                    HourlyConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
+                    HourlyWeatherConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
                     }
             }
             .padding(.all, 16)

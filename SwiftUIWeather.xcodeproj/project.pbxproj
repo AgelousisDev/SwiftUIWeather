@@ -13,6 +13,10 @@
 		71079366289A5E7300FC2699 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71079364289A5E7300FC2699 /* Extensions.swift */; };
 		7109B074289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */; };
 		7109B075289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */; };
+		711013A928A35AFD0010272C /* SunAndMoonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711013A828A35AFD0010272C /* SunAndMoonRowView.swift */; };
+		711013AA28A35AFD0010272C /* SunAndMoonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711013A828A35AFD0010272C /* SunAndMoonRowView.swift */; };
+		711013AD28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711013AC28A35D3D0010272C /* SunAndMoonStateRowView.swift */; };
+		711013AE28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711013AC28A35D3D0010272C /* SunAndMoonStateRowView.swift */; };
 		711901A9289107E300E868E9 /* TodayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901A8289107E300E868E9 /* TodayContentView.swift */; };
 		711901AA2891086800E868E9 /* TodayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901A8289107E300E868E9 /* TodayContentView.swift */; };
 		711901AC28910E3200E868E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 712C28E92890EAC8002AD4CF /* Localizable.strings */; };
@@ -75,8 +79,8 @@
 		7150324C289ED60D006A7CF9 /* VerticalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150324A289ED60D006A7CF9 /* VerticalProgressBar.swift */; };
 		7150324E289EE0E8006A7CF9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150324D289EE0E8006A7CF9 /* HeaderView.swift */; };
 		7150324F289EE0E8006A7CF9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150324D289EE0E8006A7CF9 /* HeaderView.swift */; };
-		71503251289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71503250289EE3EB006A7CF9 /* HourlyConditionRowView.swift */; };
-		71503252289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71503250289EE3EB006A7CF9 /* HourlyConditionRowView.swift */; };
+		71503251289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71503250289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift */; };
+		71503252289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71503250289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift */; };
 		7174859F28991AC0001E239F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7174859E28991AC0001E239F /* Alamofire */; };
 		717485A028991AFF001E239F /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CBFF6F28990CFB00143EF6 /* CustomImage.swift */; };
 		717485A128991B01001E239F /* WeatherHourlyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C79EC02897CE38004986E3 /* WeatherHourlyDataModel.swift */; };
@@ -133,6 +137,8 @@
 		71079361289A427B00FC2699 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		71079364289A5E7300FC2699 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperatureRowView.swift; sourceTree = "<group>"; };
+		711013A828A35AFD0010272C /* SunAndMoonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonRowView.swift; sourceTree = "<group>"; };
+		711013AC28A35D3D0010272C /* SunAndMoonStateRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunAndMoonStateRowView.swift; sourceTree = "<group>"; };
 		711901A8289107E300E868E9 /* TodayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayContentView.swift; sourceTree = "<group>"; };
 		711901AD2891125B00E868E9 /* TomorrowContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowContentView.swift; sourceTree = "<group>"; };
 		711901B02891149000E868E9 /* NextDaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDaysContentView.swift; sourceTree = "<group>"; };
@@ -172,7 +178,7 @@
 		713D7084289A1ED800D5B80C /* WeatherMainContentView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherMainContentView+Extensions.swift"; sourceTree = "<group>"; };
 		7150324A289ED60D006A7CF9 /* VerticalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalProgressBar.swift; sourceTree = "<group>"; };
 		7150324D289EE0E8006A7CF9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		71503250289EE3EB006A7CF9 /* HourlyConditionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyConditionRowView.swift; sourceTree = "<group>"; };
+		71503250289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherConditionRowView.swift; sourceTree = "<group>"; };
 		717485B428991C38001E239F /* no_internet_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = no_internet_animation.json; sourceTree = "<group>"; };
 		717485B528991C38001E239F /* location_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_Animation.json; sourceTree = "<group>"; };
 		717485B628991C38001E239F /* sun_uv_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun_uv_animation.json; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 		7107935F289A426500FC2699 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				711013AB28A35D0C0010272C /* Rows */,
 				71079360289A426B00FC2699 /* Views */,
 			);
 			path = SwiftUI;
@@ -242,9 +249,18 @@
 				712105F3289B793C003089D5 /* DotView.swift */,
 				71E525F9289C41D90079A1EE /* CircularProgressView.swift */,
 				7150324A289ED60D006A7CF9 /* VerticalProgressBar.swift */,
-				7150324D289EE0E8006A7CF9 /* HeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		711013AB28A35D0C0010272C /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				7150324D289EE0E8006A7CF9 /* HeaderView.swift */,
+				71503250289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift */,
+				711013AC28A35D3D0010272C /* SunAndMoonStateRowView.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 		712AB5AB28993E68003883F8 /* Rows */ = {
@@ -252,8 +268,8 @@
 			children = (
 				712AB5AC28993EC3003883F8 /* CalendarRowView.swift */,
 				7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */,
-				71503250289EE3EB006A7CF9 /* HourlyConditionRowView.swift */,
 				71ECD77828A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift */,
+				711013A828A35AFD0010272C /* SunAndMoonRowView.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -696,16 +712,18 @@
 				71C79EBE2897CDCB004986E3 /* WeatherAstroDataModel.swift in Sources */,
 				711901A9289107E300E868E9 /* TodayContentView.swift in Sources */,
 				71ECD77928A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */,
-				71503251289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */,
+				71503251289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift in Sources */,
 				71C79EC12897CE38004986E3 /* WeatherHourlyDataModel.swift in Sources */,
 				712AB5B028994427003883F8 /* LottieView.swift in Sources */,
 				713D7081289A1E3300D5B80C /* LocationModelProtocol.swift in Sources */,
+				711013A928A35AFD0010272C /* SunAndMoonRowView.swift in Sources */,
 				71079365289A5E7300FC2699 /* Extensions.swift in Sources */,
 				713783A928928D85006FFC87 /* RequestManager.swift in Sources */,
 				71CBFF7028990CFB00143EF6 /* CustomImage.swift in Sources */,
 				711901B12891149000E868E9 /* NextDaysContentView.swift in Sources */,
 				712AB5AD28993EC3003883F8 /* CalendarRowView.swift in Sources */,
 				713783A328928C2F006FFC87 /* AddressDataModel.swift in Sources */,
+				711013AD28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */,
 				713783BC28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
 				712C28D02890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
 				71C79EB82897CD02004986E3 /* WeatherForecastDayDataModel.swift in Sources */,
@@ -746,16 +764,18 @@
 				712C28F02890ED76002AD4CF /* WeatherNavigationScreen.swift in Sources */,
 				713783AA28928D85006FFC87 /* RequestManager.swift in Sources */,
 				71ECD77A28A2D72800EBBC72 /* HourlyWeatherConditionsRowView.swift in Sources */,
-				71503252289EE3EB006A7CF9 /* HourlyConditionRowView.swift in Sources */,
+				71503252289EE3EB006A7CF9 /* HourlyWeatherConditionRowView.swift in Sources */,
 				717485A128991B01001E239F /* WeatherHourlyDataModel.swift in Sources */,
 				712AB5B128994427003883F8 /* LottieView.swift in Sources */,
 				713D7082289A1E3300D5B80C /* LocationModelProtocol.swift in Sources */,
+				711013AA28A35AFD0010272C /* SunAndMoonRowView.swift in Sources */,
 				71079366289A5E7300FC2699 /* Extensions.swift in Sources */,
 				711901B22891149000E868E9 /* NextDaysContentView.swift in Sources */,
 				713783A428928C2F006FFC87 /* AddressDataModel.swift in Sources */,
 				713783BD28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
 				712AB5AE28993EC3003883F8 /* CalendarRowView.swift in Sources */,
 				712C28D12890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
+				711013AE28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */,
 				717485A528991B0C001E239F /* StringUtils.swift in Sources */,
 				71C79EB92897CD02004986E3 /* WeatherForecastDayDataModel.swift in Sources */,
 				711901AF2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
