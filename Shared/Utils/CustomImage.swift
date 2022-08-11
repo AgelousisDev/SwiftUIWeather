@@ -7,20 +7,21 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CustomImage {
     
-    static let arrowDirectionDown = UIImage(named: "ic_arrow_direction_down")
-    static let fahrenheitTemperature = UIImage(named: "ic_fahrenheit_temperature")
-    static let celsiusTemperature = UIImage(named: "ic_celsius_temperature")
-    static let moon = UIImage(named: "ic_moon")
-    static let moonrise = UIImage(named: "ic_moonrise")
-    static let moonset = UIImage(named: "ic_moonset")
-    static let pin = UIImage(named: "ic_pin")
-    static let sun = UIImage(named: "ic_sun")
-    static let sunrise = UIImage(named: "ic_sunrise")
-    static let sunset = UIImage(named: "ic_sunset")
-    static let weatherPartyCloudy = UIImage(named: "ic_weather_partly_cloudy")
-    static let weather = UIImage(named: "ic_weather")
+    static let arrowDirectionDown = Image("ic_arrow_direction_down")
+    static let fahrenheitTemperature = Image("ic_fahrenheit_temperature")
+    static let celsiusTemperature = Image("ic_celsius_temperature")
+    static let moon = Image("ic_moon")
+    static let moonrise = Image("ic_moonrise")
+    static let moonset = Image("ic_moonset")
+    static let pin = Image("ic_pin")
+    static let sun = Image("ic_sun")
+    static let sunrise = Image("ic_sunrise")
+    static let sunset = Image("ic_sunset")
+    static let weatherPartyCloudy = Image("ic_weather_partly_cloudy")
+    static let weather = Image("ic_weather")
     
 }

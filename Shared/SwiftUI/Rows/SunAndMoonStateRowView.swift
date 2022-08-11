@@ -15,29 +15,28 @@ struct SunAndMoonStateRowView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            
-            if let sunAndMoonStateIcon = sunAndMoonState.icon {
                 
-                Image(uiImage: sunAndMoonStateIcon)
-                    .frame(width: 30, height: 30)
-                    .padding(.top, 20)
+            sunAndMoonState.icon
+                .resizable()
+                .frame(width: 30, height: 30)
+                .frame(maxWidth: 30, maxHeight: 30)
+                .padding(.top, 20)
                 
-                Text(sunAndMoonState.label)
-                    .font(.subheadline)
-                    .fontWeight(.light)
+            Text(sunAndMoonState.label)
+                .font(.subheadline)
+                .fontWeight(.light)
                 
-                Divider()
-                    .padding(.horizontal, 6)
+            Divider()
+                .padding(.horizontal, 6)
                 
-                ZStack(alignment: .center) {
+            ZStack(alignment: .center) {
                     
-                    Text(sunAndMoonStateTime)
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .padding(.bottom, 8)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                Text(sunAndMoonStateTime)
+                    .font(.body)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 8)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(width: 120, height: 120)
         .overlay(
@@ -72,7 +71,7 @@ struct SunAndMoonStateRowView: View {
 struct SunAndMoonStateRowView_Previews: PreviewProvider {
     static var previews: some View {
         SunAndMoonStateRowView(sunAndMoonState: SunAndMoonState
-            .MOONRISE,
+            .SUNRISE,
             weatherAstroDataModel: WeatherAstroDataModel(sunrise: "07:00", sunset: "20:00", moonrise: "06:00", moonset: "19:00", moon_phase: "", moon_illumination: "10"
             )
         )

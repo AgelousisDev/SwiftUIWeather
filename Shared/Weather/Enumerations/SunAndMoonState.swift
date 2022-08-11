@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 enum SunAndMoonState: CaseIterable, Identifiable {
     case SUNRISE
@@ -18,7 +19,7 @@ enum SunAndMoonState: CaseIterable, Identifiable {
         return UUID().description
     }
     
-    var icon: UIImage? {
+    var icon: Image {
         switch self {
         case .SUNRISE:
             return CustomImage.sunrise

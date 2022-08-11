@@ -18,7 +18,7 @@
 "key_temperature_unit_label"                = "Temperature Unit";
 "key_load_saved_weather_when_offline_label" = "Load saved weather/Offline mode";
 "key_temperature_unit_types_array"          = "Celsius|Fahrenheit";
-"key_sun_and_moon_label"                    = "Sun &amp; Moon";
+"key_sun_and_moon_label"                    = "Sun & Moon";
 "key_sunrise_label"                         = "Sunrise";
 "key_moonrise_label"                        = "Moonrise";
 "key_sunset_label"                          = "Sunset";

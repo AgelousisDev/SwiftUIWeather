@@ -11,12 +11,13 @@ import SwiftUI
 struct HourlyWeatherConditionsRowView: View {
     
     let weatherHourlyDataModelList: [WeatherHourlyDataModel]
+    let weatherNavigationScreen: WeatherNavigationScreen
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack(alignment: .center, spacing: 16) {
                 ForEach(weatherHourlyDataModelList) { weatherHourlyDataModel in
-                     
+                             
                     HourlyWeatherConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
                     }
             }
@@ -28,6 +29,6 @@ struct HourlyWeatherConditionsRowView: View {
 
 struct HourlyWeatherConditionsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        HourlyWeatherConditionsRowView(weatherHourlyDataModelList: [])
+        HourlyWeatherConditionsRowView(weatherHourlyDataModelList: [], weatherNavigationScreen: .Today)
     }
 }

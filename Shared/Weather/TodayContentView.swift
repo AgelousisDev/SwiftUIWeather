@@ -21,14 +21,14 @@ struct TodayContentView: View {
                     CalendarRowView()
                     
                     // Current Temperature
-                    CurrentTemperatureRowView()
+                    CurrentTemperatureRowView(currentWeatherDataModel: viewModel.weatherResponseModel?.current)
                     
                     // Day Hourly Temperature
                     HeaderView(header: "key_temperature_label".localized)
                         .padding(.top, 16)
                         .padding(.leading, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    HourlyWeatherConditionsRowView(weatherHourlyDataModelList: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? [])
+                    HourlyWeatherConditionsRowView(weatherHourlyDataModelList: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? [], weatherNavigationScreen: WeatherNavigationScreen.Today)
                     
                     // Sun & Moon
                     HeaderView(header: "key_sun_and_moon_label".localized)

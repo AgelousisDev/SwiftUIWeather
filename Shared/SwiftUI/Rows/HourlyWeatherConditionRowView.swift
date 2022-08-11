@@ -52,10 +52,9 @@ struct HourlyWeatherConditionRowView: View {
                         .foregroundColor(Color(weatherHourlyDataModel.windStateColor ?? UIColor.black))
                     
                     VStack(alignment: .center, spacing: 8) {
-                        if weatherHourlyDataModel.wind_degree != nil, let arrowImage = CustomImage.arrowDirectionDown {
+                        if weatherHourlyDataModel.wind_degree != nil {
                             
-                            Image(uiImage: arrowImage)
-                                .resizable()
+                            CustomImage.arrowDirectionDown.resizable()
                                 .frame(width: 15, height: 15)
                                 .foregroundColor(Color.gray)
                                 .rotationEffect(Angle.degrees(Double(weatherHourlyDataModel.wind_degree ?? 0)))

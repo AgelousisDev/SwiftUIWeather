@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CurrentTemperatureRowView: View {
     
-    @EnvironmentObject var viewModel: WeatherViewModel
+    let currentWeatherDataModel: CurrentWeatherDataModel?
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
@@ -30,20 +30,20 @@ struct CurrentTemperatureRowView: View {
     private var temperatureView: some View {
         VStack(alignment: .center, spacing: 8) {
             HStack(alignment: .center, spacing: 24) {
-                Text(viewModel.weatherResponseModel?.current?.currentTemperatureUnitFormatted ?? "")
+                Text(currentWeatherDataModel?.currentTemperatureUnitFormatted ?? "")
                     .font(.title2)
-                AsyncImage(url: URL(string: viewModel.weatherResponseModel?.current?.condition?.iconUrl ?? ""), content: { image in
+                AsyncImage(url: URL(string: currentWeatherDataModel?.condition?.iconUrl ?? ""), content: { image in
                     image.resizable()
                 }, placeholder: {
                     ProgressView()
                 })
                 .frame(width: 40, height: 40)
             }
-            Text(viewModel.weatherResponseModel?.current?.condition?.text ?? "")
+            Text(currentWeatherDataModel?.condition?.text ?? "")
                 .font(.body)
                 .fontWeight(.light)
                 .foregroundColor(Color.gray)
-            Text(String(format: "key_feels_like_label".localized, viewModel.weatherResponseModel?.current?.feelsLikeTemperatureUnitFormatted ?? ""))
+            Text(String(format: "key_feels_like_label".localized, currentWeatherDataModel?.feelsLikeTemperatureUnitFormatted ?? ""))
                 .font(.body)
                 .fontWeight(.light)
                 .foregroundColor(Color.gray)
@@ -53,18 +53,18 @@ struct CurrentTemperatureRowView: View {
     private var windView: some View {
         HStack(alignment: .center, spacing: 16) {
             
-            Text(String(viewModel.weatherResponseModel?.current?.wind_kph?.toInt() ?? 0))
+            Text(String(currentWeatherDataModel?.wind_kph?.toInt() ?? 0))
                 .font(.title2)
-                .foregroundColor(Color(viewModel.weatherResponseModel?.current?.windStateColor ?? UIColor.black))
+                .foregroundColor(Color(currentWeatherDataModel?.windStateColor ?? UIColor.black))
             
             VStack(alignment: .center, spacing: 8) {
-                if viewModel.weatherResponseModel?.current?.wind_degree != nil, let arrowImage = CustomImage.arrowDirectionDown {
+                if currentWeatherDataModel?.wind_degree != nil {
                     
-                    Image(uiImage: arrowImage)
+                    CustomImage.arrowDirectionDown
                         .resizable()
                         .frame(width: 15, height: 15)
                         .foregroundColor(Color.gray)
-                        .rotationEffect(Angle.degrees(Double(viewModel.weatherResponseModel?.current?.wind_degree ?? 0)))
+                        .rotationEffect(Angle.degrees(Double(currentWeatherDataModel?.wind_degree ?? 0)))
                     
                     Text("key_km_hourly_label".localized)
                         .font(.body)
@@ -75,12 +75,12 @@ struct CurrentTemperatureRowView: View {
             
             VStack(alignment: .center, spacing: 8) {
                 
-                Text(viewModel.weatherResponseModel?.current?.windStateWarning ?? "")
+                Text(currentWeatherDataModel?.windStateWarning ?? "")
                     .font(.body)
                     .fontWeight(.light)
-                    .foregroundColor(Color(viewModel.weatherResponseModel?.current?.windStateColor ?? UIColor.black))
+                    .foregroundColor(Color(currentWeatherDataModel?.windStateColor ?? UIColor.black))
                 
-                Text(String(format: "key_now_with_value_label".localized, viewModel.weatherResponseModel?.current?.windDirection ?? ""))
+                Text(String(format: "key_now_with_value_label".localized, currentWeatherDataModel?.windDirection ?? ""))
                     .font(Font.callout)
                     .fontWeight(.ultraLight)
             }
@@ -93,17 +93,17 @@ struct CurrentTemperatureRowView: View {
     private var uvIndexView: some View {
         HStack(alignment: .center, spacing: 16) {
             
-            VerticalProgressBar(width: 15, height: 100, value: Float(viewModel.weatherResponseModel?.current?.uv ?? 0.0) / 10, color: Color(viewModel.weatherResponseModel?.current?.uvIndexColor ?? .gray))
+            VerticalProgressBar(width: 15, height: 100, value: Float(currentWeatherDataModel?.uv ?? 0.0) / 10, color: Color(currentWeatherDataModel?.uvIndexColor ?? .gray))
             
             VStack(alignment: .center, spacing: 8) {
                 
                 Text("key_uv_index_label".localized)
                     .font(.body)
                 
-                Text(String(format: "key_uv_index_value_label".localized, viewModel.weatherResponseModel?.current?.uvIndexExposureLevel ?? "", Int(viewModel.weatherResponseModel?.current?.uv ?? 0.0)))
+                Text(String(format: "key_uv_index_value_label".localized, currentWeatherDataModel?.uvIndexExposureLevel ?? "", Int(currentWeatherDataModel?.uv ?? 0.0)))
                     .font(.body)
                     .fontWeight(.medium)
-                    .foregroundColor(Color(viewModel.weatherResponseModel?.current?.uvIndexColor ?? UIColor.black))
+                    .foregroundColor(Color(currentWeatherDataModel?.uvIndexColor ?? UIColor.black))
             }
             
             LottieView(filename: "sun_uv_animation", isPaused: false)
@@ -114,7 +114,7 @@ struct CurrentTemperatureRowView: View {
     private var humidityView: some View {
         HStack(alignment: .center, spacing: 32) {
             
-            CircularProgressView(progress: (Double(viewModel.weatherResponseModel?.current?.humidityDoubleValue ?? 0.0)), color: Color(CustomColor.blueColor ?? .blue))
+            CircularProgressView(progress: (Double(currentWeatherDataModel?.humidityDoubleValue ?? 0.0)), color: Color(CustomColor.blueColor ?? .blue))
                 .frame(width: 80, height: 80)
             
             VStack(alignment: .center, spacing: 8) {
@@ -122,7 +122,7 @@ struct CurrentTemperatureRowView: View {
                 Text("key_humidity_label".localized)
                     .font(.body)
                 
-                Text(String(format: "key_value_with_percent_label".localized, viewModel.weatherResponseModel?.current?.humidity ?? 0))
+                Text(String(format: "key_value_with_percent_label".localized, currentWeatherDataModel?.humidity ?? 0))
                     .font(.body)
                     .fontWeight(.medium)
                     .foregroundColor(Color.blue.opacity(0.8))
@@ -137,15 +137,13 @@ struct CurrentTemperatureRowView: View {
 
 struct CurrentTemperatureRowView_Previews: PreviewProvider {
     
-    private static func getWeatherViewModel() -> WeatherViewModel {
-        let weatherViewModel = WeatherViewModel()
-        weatherViewModel.weatherResponseModel = WeatherResponseModel(location: nil, current: CurrentWeatherDataModel(last_updated_epoch: 0, last_updated: nil, temp_c: 50, temp_f: 90, is_day: 1, condition: WeatherConditionDataModel(text: "Sunny", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/The_Sun_in_white_light.jpg", code: nil), wind_mph: 20.0, wind_kph: 20.0, wind_degree: 180, wind_dir: "SW", pressure_mb: 1.0, pressure_in: 2.0, precip_mm: 3.0, precip_in: 4.0, humidity: 50, cloud: 1, feelslike_c: 25.0, feelslike_f: 40.0, vis_km: 12.0, vis_miles: 18.0, uv: 8.0, gust_mph: 1.0, gust_kph: 0.5, air_quality: nil), forecast: nil)
-        return weatherViewModel
+    private static func getCurrentWeatherDataModel() -> CurrentWeatherDataModel {
+        return CurrentWeatherDataModel(last_updated_epoch: 0, last_updated: nil, temp_c: 50, temp_f: 90, is_day: 1, condition: WeatherConditionDataModel(text: "Sunny", icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/The_Sun_in_white_light.jpg", code: nil), wind_mph: 20.0, wind_kph: 20.0, wind_degree: 180, wind_dir: "SW", pressure_mb: 1.0, pressure_in: 2.0, precip_mm: 3.0, precip_in: 4.0, humidity: 50, cloud: 1, feelslike_c: 25.0, feelslike_f: 40.0, vis_km: 12.0, vis_miles: 18.0, uv: 8.0, gust_mph: 1.0, gust_kph: 0.5, air_quality: nil
+        )
     }
     
     static var previews: some View {
-        CurrentTemperatureRowView()
-            .environmentObject(CurrentTemperatureRowView_Previews.getWeatherViewModel())
+        CurrentTemperatureRowView(currentWeatherDataModel: getCurrentWeatherDataModel())
     }
 }
 

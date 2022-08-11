@@ -49,6 +49,7 @@ extension String {
         pattern: String = Constants.SERVER_DATE_TIME_FORMAT
     )-> Date? {
         let dateFormatterGet = DateFormatter()
+        dateFormatterGet.locale = Locale(identifier: "en_US_POSIX")
         dateFormatterGet.dateFormat = pattern
         return dateFormatterGet.date(from: self)
     }

@@ -21,6 +21,7 @@ struct SunAndMoonRowView: View {
                     SunAndMoonStateRowView(sunAndMoonState: sunAndMoonstate, weatherAstroDataModel: weatherAstroDataModel)
                 }
             }
+            .padding(.all, 16)
         }
     }
     
