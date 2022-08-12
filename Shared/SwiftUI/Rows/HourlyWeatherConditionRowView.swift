@@ -19,7 +19,7 @@ struct HourlyWeatherConditionRowView: View {
             ZStack {
                 Text(weatherHourlyDataModel.displayTime ?? "")
                     .font(.body)
-                    .fontWeight(.bold)
+                    .fontWeight(.medium)
                     .padding(.top, 8)
             }
             .frame(height: 30)

@@ -33,7 +33,7 @@ struct SunAndMoonStateRowView: View {
                     
                 Text(sunAndMoonStateTime)
                     .font(.body)
-                    .fontWeight(.bold)
+                    .fontWeight(.medium)
                     .padding(.bottom, 8)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
