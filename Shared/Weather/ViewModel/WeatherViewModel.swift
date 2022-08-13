@@ -19,6 +19,39 @@ class WeatherViewModel: ObservableObject {
     @Published var alertTuple: (String?, String?) = (nil, nil)
     
     @Published var weatherResponseModel: WeatherResponseModel?
+    
+    var nextDaysForecastDataList: [Any] {
+        var items = [Any]()
+        for weatherForecastDayDataModel in weatherResponseModel?.forecast?.nextWeatherForecastDayDataModelList ?? [] {
+            
+            if (weatherForecastDayDataModel.hour == nil) {
+                continue
+            }
+            
+            items.append(
+                weatherForecastDayDataModel.date?.toDate(
+                    pattern: Constants.SERVER_DATE_FORMAT
+                )?.toDisplayDate(
+                    pattern: Constants.DISPLAY_DATE_FORMAT
+                ) ?? ""
+            )
+            
+            if let currentDayWeatherDataModel = weatherForecastDayDataModel.day {
+                items.append(
+                    currentDayWeatherDataModel
+                )
+            }
+            
+            if let weatherHourlyDataModelList = weatherForecastDayDataModel.hour {
+                items.append(
+                    weatherHourlyDataModelList
+                )
+            }
+            
+        }
+        
+        return items
+    }
         
     func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool) {
         isLoading = true

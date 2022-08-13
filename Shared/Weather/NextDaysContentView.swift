@@ -10,20 +10,50 @@ import SwiftUI
 
 struct NextDaysContentView: View {
     
-    var viewModel: WeatherViewModel?
+    @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
-        Text(WeatherNavigationScreen.NextDays.label)
-            .tabItem {
-                Label(WeatherNavigationScreen.NextDays.label, image: WeatherNavigationScreen.NextDays.icon)
+        List {
+            if viewModel.weatherResponseModel != nil {
+                
+                ForEach(0..<viewModel.nextDaysForecastDataList.count, id: \.self) { index in
+                    
+                    if let header = viewModel.nextDaysForecastDataList[index] as? String {
+                        
+                        HeaderView(header: header)
+                            .listRowSeparator(.hidden)
+                    }
+                    
+                    if let currentDayWeatherDataModel = viewModel.nextDaysForecastDataList[index] as? CurrentDayWeatherDataModel {
+                        
+                        ForecaseDayWeatherView(currentDayWeatherDataModel: currentDayWeatherDataModel)
+                            .listRowSeparator(.hidden)
+                    }
+                    
+                    if let weatherHourlyDataModelList = viewModel.nextDaysForecastDataList[index] as? [WeatherHourlyDataModel] {
+                        
+                        HourlyWeatherConditionsRowView(weatherHourlyDataModelList: weatherHourlyDataModelList, weatherNavigationScreen: WeatherNavigationScreen.NextDays)
+                            .listRowSeparator(.hidden)
+                    }
+                }
             }
-            .tag(WeatherNavigationScreen.NextDays.rawValue)
+            
+            if viewModel.isLoading {
+                ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
+            }
+            
+        }
+        .tabItem {
+            Label(WeatherNavigationScreen.NextDays.label, image: WeatherNavigationScreen.NextDays.icon)
+        }
+        .tag(WeatherNavigationScreen.NextDays.rawValue)
     }
 }
 
 struct NextDaysContentView_Previews: PreviewProvider {
     static var previews: some View {
         NextDaysContentView()
+            .environmentObject(WeatherViewModel())
     }
 }
 

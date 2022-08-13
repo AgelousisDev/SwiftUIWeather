@@ -21,7 +21,7 @@ struct HourlyWeatherConditionsRowView: View {
                     HourlyWeatherConditionRowView(weatherHourlyDataModel: weatherHourlyDataModel)
                     }
             }
-            .padding(.all, 16)
+            .padding(.all, weatherNavigationScreen == .NextDays ? 8 : 16)
         }
     }
     
