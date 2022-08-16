@@ -13,9 +13,39 @@ struct ForecaseDayWeatherView: View {
     let currentDayWeatherDataModel: CurrentDayWeatherDataModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 16) {
+                // C
+                Text(currentDayWeatherDataModel.currentMinMaxTemperatureUnitFormatted)
+                    .font(.title2)
+                // Condition Icon
+                AsyncImage(url: URL(string: currentDayWeatherDataModel.condition?.iconUrl ?? ""), content: { image in
+                    image.resizable()
+                }, placeholder: {
+                    ProgressView()
+                })
+                .frame(width: 40, height: 40)
+            }
+            // Condition Text
+            Text(currentDayWeatherDataModel.condition?.text ?? "")
+                .font(.body)
+                .fontWeight(.light)
+                .foregroundColor(Color.gray)
             
+            // Wind HStack
+            HStack(alignment: .center, spacing: 16) {
+                Text(String(currentDayWeatherDataModel.maxwind_kph?.toInt() ?? 0))
+                    .font(.title2)
+                    .foregroundColor(Color(currentDayWeatherDataModel.windStateColor ?? UIColor.black))
+                Text(currentDayWeatherDataModel.windStateWarning ?? "")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .foregroundColor(Color(currentDayWeatherDataModel.windStateColor ?? UIColor.black))
+                LottieView(filename: "wind_animation", isPaused: false)
+                    .frame(width: 50, height: 50)
+            }
         }
+        .frame(maxWidth: .infinity)
     }
     
 }
