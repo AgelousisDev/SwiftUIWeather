@@ -41,6 +41,12 @@ struct TodayContentView: View {
             if viewModel.isLoading {
                 ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
             }
+            if (viewModel.requestLocationState) {
+                RequestLocationView()
+            }
+            if (viewModel.networkErrorState) {
+                NetworkErrorView()
+            }
         }
         .tabItem {
             Label(WeatherNavigationScreen.Today.label, image: WeatherNavigationScreen.Today.icon)

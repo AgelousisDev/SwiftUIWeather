@@ -10,7 +10,7 @@ import Alamofire
 
 extension RequestManager {
     
-    class func requestWeatherForecase(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>, errorBlock: @escaping ErrorBlock) {
+    class func requestWeatherForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool, successModelBlock: @escaping SuccessModelBlock<WeatherResponseModel>, errorBlock: @escaping ErrorBlock) {
         let urlString = "\(ApiConstants.weatherBaseUrl)\(ApiConstants.Endpoints.forecastEndpoint)"
         //let encoder = JSONEncoder()
         guard let _ = URL(string: urlString) else {
@@ -30,13 +30,16 @@ extension RequestManager {
             ApiConstants.Parameters.ALERTS_STATE_PARAM: alertsState ? "yes" : "no"
         ]
         AF.request(urlString, method: .get, parameters: parameters).responseDecodable(of: WeatherResponseModel.self) { response in
-            if let weatherResponseModel = response.value {
+            if let weatherResponseModel = response.value,
+               weatherResponseModel.current != nil,
+               weatherResponseModel.location != nil,
+               weatherResponseModel.forecast != nil {
                 
                 successModelBlock(weatherResponseModel)
             }
             else {
                 
-                errorBlock(ErrorModel(localizedMessage: response.error?.localizedDescription))
+                errorBlock(ErrorModel(localizedMessage: response.error?.localizedDescription ?? "key_generic_error_message".localized))
             }
         }
     }

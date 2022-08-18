@@ -14,9 +14,12 @@ class WeatherViewModel: ObservableObject {
     @Published var navigationBarTitle: String?
         
     @Published var isLoading = false
+    @Published var requestLocationState = false
         
     @Published var alertState = false
     @Published var alertTuple: (String?, String?) = (nil, nil)
+    
+    @Published var networkErrorState = false
     
     @Published var weatherResponseModel: WeatherResponseModel?
     
@@ -55,14 +58,16 @@ class WeatherViewModel: ObservableObject {
         
     func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool) {
         isLoading = true
-        RequestManager.requestWeatherForecase(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
+        RequestManager.requestWeatherForecast(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
             self.isLoading = false
+            self.networkErrorState = false
             self.weatherResponseModel = weatherResponseModel
             if self.navigationBarTitle == nil {
                 self.navigationBarTitle = weatherResponseModel.location?.regionCountry
             }
         }, errorBlock: { errorModel in
             self.isLoading = false
+            self.networkErrorState = true
             self.alertState = true
             self.alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)
         })

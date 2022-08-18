@@ -9,9 +9,8 @@ import Foundation
 
 extension WeatherMainContentView: LocationModelProtocol {
     func onLocationAddressReady(addressDataModel: AddressDataModel) {
-        
+        viewModel.requestLocationState = false
         viewModel.navigationBarTitle = addressDataModel.addressLine
-        
         viewModel.requestForecast(location: String(format: "%f,%f", addressDataModel.latitude ?? 0, addressDataModel.longitude ?? 0), days: 7, airQualityState: true, alertsState: true
         )
     }

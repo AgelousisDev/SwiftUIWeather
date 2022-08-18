@@ -48,7 +48,7 @@ struct WeatherMainContentView: View {
     }
     
     private func requestLocation() {
-        viewModel.isLoading = true
+        viewModel.requestLocationState = true
         locationModel.locationModelProtocol = self
         locationModel.requestAuthorisation()
     }
