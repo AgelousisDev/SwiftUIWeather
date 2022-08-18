@@ -40,6 +40,11 @@ struct WeatherMainContentView: View {
                 }
             )
         }
+        .alert(isPresented: $viewModel.alertState) {
+            Alert(title: Text(viewModel.alertTuple.0 ?? ""), message: Text(viewModel.alertTuple.1 ?? ""), dismissButton: .cancel(Text("key_okLabel".localized)) {
+                viewModel.dismissAlert()
+            })
+        }
         .environmentObject(viewModel)
         .environmentObject(locationModel)
         .onAppear {

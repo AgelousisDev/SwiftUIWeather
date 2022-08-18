@@ -37,12 +37,14 @@ struct NextDaysContentView: View {
                     }
                 }
             }
-            
             if viewModel.isLoading {
                 ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
             }
             if (viewModel.requestLocationState) {
                 RequestLocationView()
+            }
+            if (viewModel.networkErrorState) {
+                NetworkErrorView()
             }
         }
         .tabItem {

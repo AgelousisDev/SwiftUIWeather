@@ -39,3 +39,4 @@
 "key_weather_notifications_label"           = "Weather notifications";
 "key_generic_error_message"                 = "There was a problem processing your request. Please try again later.";
 "key_warning_label"                         = "Warning";
+"key_okLabel"                               = "OK";

@@ -68,9 +68,17 @@ class WeatherViewModel: ObservableObject {
         }, errorBlock: { errorModel in
             self.isLoading = false
             self.networkErrorState = true
-            self.alertState = true
+            self.showAlert()
             self.alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)
         })
+    }
+    
+    func showAlert() {
+        alertState = true
+    }
+    
+    func dismissAlert() {
+        alertState = false
     }
     
 }

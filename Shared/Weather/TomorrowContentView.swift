@@ -44,6 +44,9 @@ struct TomorrowContentView: View {
             if (viewModel.requestLocationState) {
                 RequestLocationView()
             }
+            if (viewModel.networkErrorState) {
+                NetworkErrorView()
+            }
         }
         .tabItem {
                Label(WeatherNavigationScreen.Tomorrow.label, image: WeatherNavigationScreen.Tomorrow.icon)
