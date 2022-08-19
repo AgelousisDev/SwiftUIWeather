@@ -79,6 +79,7 @@ class WeatherViewModel: ObservableObject {
     
     func dismissAlert() {
         alertState = false
+        alertTuple = (nil, nil)
     }
     
 }

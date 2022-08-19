@@ -11,6 +11,7 @@ struct WeatherMainContentView: View {
     
     @StateObject var viewModel = WeatherViewModel()
     @StateObject private var locationModel = LocationModel()
+    @State private var settingsState = false
     
     var body: some View {
         NavigationView {
@@ -23,6 +24,16 @@ struct WeatherMainContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 trailing: HStack {
+                    Button(
+                        action: {
+                            settingsState.toggle()
+                        }
+                    ) {
+                        Image(systemName: "gearshape")
+                    }
+                    .sheet(isPresented: $settingsState) {
+                        
+                    }
                     Button(
                         action: {
                             

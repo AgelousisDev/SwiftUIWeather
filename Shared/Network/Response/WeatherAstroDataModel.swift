@@ -17,16 +17,24 @@ struct WeatherAstroDataModel: Codable {
     
     var availableSunAndMoonStates: [SunAndMoonState] {
         var sunAndMoonStates = [SunAndMoonState]()
-        if sunrise != nil {
+        if sunrise != nil && sunrise?.isNotEmpty == true && sunrise?.toDate(
+            pattern: Constants.SMALL_TIME_FORMAT
+        ) != nil {
             sunAndMoonStates.append(.SUNRISE)
         }
-        if moonrise != nil {
+        if moonrise != nil && moonrise?.isNotEmpty == true && moonrise?.toDate(
+            pattern: Constants.SMALL_TIME_FORMAT
+        ) != nil {
             sunAndMoonStates.append(.MOONRISE)
         }
-        if sunset != nil {
+        if sunset != nil && sunset?.isNotEmpty == true && sunset?.toDate(
+            pattern: Constants.SMALL_TIME_FORMAT
+        ) != nil {
             sunAndMoonStates.append(.SUNSET)
         }
-        if moonset != nil {
+        if moonset != nil && moonset?.isNotEmpty == true && moonset?.toDate(
+            pattern: Constants.SMALL_TIME_FORMAT
+        ) != nil {
             sunAndMoonStates.append(.MOON_SET)
         }
         return sunAndMoonStates

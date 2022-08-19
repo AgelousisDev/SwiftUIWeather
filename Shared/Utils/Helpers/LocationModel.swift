@@ -42,10 +42,10 @@ extension LocationModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
         guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
         getAddressFromLatLon(pdblLatitude: locValue.latitude, withLongitude: locValue.longitude) { addressDataModel in
             self.addressDataModel = addressDataModel
-            manager.stopUpdatingLocation()
             self.locationModelProtocol?.onLocationAddressReady(addressDataModel: addressDataModel)
         }
     }

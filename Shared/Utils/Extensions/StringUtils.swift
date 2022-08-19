@@ -54,4 +54,8 @@ extension String {
         return dateFormatterGet.date(from: self)
     }
     
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+    
 }
