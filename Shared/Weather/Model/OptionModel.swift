@@ -11,8 +11,8 @@ import SwiftUI
 struct OptionModel {
     let weatherSettings: WeatherSettings
     let label: String
-    let optionModelList: [(String, Image)]? = nil
-    let selectedOptionModel: String? = nil
+    let optionList: [(String, Image)]?
+    let selectedOptionIndex: Int? = nil
     let optionIsChecked = false
     let optionIsEnabled = true
 }

@@ -25,8 +25,8 @@ struct SelectionInputFieldRowView: View {
 
 struct SelectionInputFieldRowView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionInputFieldRowView(optionModel: OptionModel(weatherSettings: WeatherSettings.TemperatureType, label: "key_temperatureTypeLabel".localized, optionModelLxist: ["key_temperature_unit_types_array".localized.split(separator: "|").first?.description, CustomImage.celsiusTemperature])) { position in
+        SelectionInputFieldRowView(optionModel: OptionModel(weatherSettings: WeatherSettings.TemperatureType, label: "key_temperatureTypeLabel".localized, optionList: [("key_temperature_unit_types_array".split(separator: "|").first?.description ?? "", CustomImage.celsiusTemperature)]), selectionInputFieldBlock: { index in
             
-        }
+        })
     }
 }
