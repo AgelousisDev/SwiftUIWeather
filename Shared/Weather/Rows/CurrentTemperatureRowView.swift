@@ -11,6 +11,7 @@ import SwiftUI
 struct CurrentTemperatureRowView: View {
     
     let currentWeatherDataModel: CurrentWeatherDataModel?
+    @EnvironmentObject private var settingsStore: SettingsStore
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
@@ -30,7 +31,7 @@ struct CurrentTemperatureRowView: View {
     private var temperatureView: some View {
         VStack(alignment: .center, spacing: 8) {
             HStack(alignment: .center, spacing: 24) {
-                Text(currentWeatherDataModel?.currentTemperatureUnitFormatted ?? "")
+                Text(currentWeatherDataModel?.currentTemperatureUnitFormatted(settingsStore: settingsStore) ?? "")
                     .font(.title2)
                 AsyncImage(url: URL(string: currentWeatherDataModel?.condition?.iconUrl ?? ""), content: { image in
                     image.resizable()
@@ -43,7 +44,7 @@ struct CurrentTemperatureRowView: View {
                 .font(.body)
                 .fontWeight(.light)
                 .foregroundColor(Color.gray)
-            Text(String(format: "key_feels_like_label".localized, currentWeatherDataModel?.feelsLikeTemperatureUnitFormatted ?? ""))
+            Text(String(format: "key_feels_like_label".localized, currentWeatherDataModel?.feelsLikeTemperatureUnitFormatted(settingsStore: settingsStore) ?? ""))
                 .font(.body)
                 .fontWeight(.light)
                 .foregroundColor(Color.gray)

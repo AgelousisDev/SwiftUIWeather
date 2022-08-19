@@ -11,6 +11,7 @@ import SwiftUI
 struct HourlyWeatherConditionRowView: View {
     
     let weatherHourlyDataModel: WeatherHourlyDataModel
+    @EnvironmentObject private var settingsStore: SettingsStore
     
     var body: some View {
         VStack {
@@ -32,7 +33,7 @@ struct HourlyWeatherConditionRowView: View {
                 AsyncImage(url: URL(string: weatherHourlyDataModel.condition?.iconUrl ?? ""))
                     .frame(width: 40, height: 40)
                 
-                Text(weatherHourlyDataModel.currentTemperatureUnitFormatted )
+                Text(weatherHourlyDataModel.currentTemperatureUnitFormatted(settingsStore: settingsStore) )
                     .font(.title2)
                 
                 Text(weatherHourlyDataModel.condition?.text ?? "")
@@ -40,7 +41,7 @@ struct HourlyWeatherConditionRowView: View {
                     .fontWeight(.ultraLight)
                     .foregroundColor(Color.gray)
                 
-                Text(String(format: "key_feels_like_label".localized, weatherHourlyDataModel.feelsLikeTemperatureUnitFormatted ))
+                Text(String(format: "key_feels_like_label".localized, weatherHourlyDataModel.feelsLikeTemperatureUnitFormatted(settingsStore: settingsStore) ))
                     .font(.subheadline)
                     .fontWeight(.light)
                     .foregroundColor(Color.gray)

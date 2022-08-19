@@ -14,7 +14,7 @@ struct TomorrowContentView: View {
     
     var body: some View {
         VStack {
-            if viewModel.weatherResponseModel != nil && !viewModel.isLoading || isOnPreview {
+            if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
                 
                 ScrollView(.vertical) {
                     // Calendar Item

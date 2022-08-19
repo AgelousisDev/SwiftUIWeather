@@ -29,9 +29,15 @@ struct CurrentDayWeatherDataModel: Codable {
     let condition: WeatherConditionDataModel?
     let uv: Double
     
-    var currentMinMaxTemperatureUnitFormatted: String {
-        return String(format: "%d °C - %d °C", Int(mintemp_c ?? 0),
-                      Int(maxtemp_c ?? 0))
+    func currentMinMaxTemperatureUnitFormatted(settingsStore: SettingsStore) -> String {
+        switch settingsStore.temperatureUnitType {
+        case .FAHRENHEIT:
+            return String(format: "%d °F - %d °F", Int(mintemp_f ?? 0),
+                          Int(maxtemp_f ?? 0))
+        default:
+            return String(format: "%d °C - %d °C", Int(mintemp_c ?? 0),
+                          Int(maxtemp_c ?? 0))
+        }
     }
 
     var windStateWarning: String? {

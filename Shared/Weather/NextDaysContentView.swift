@@ -14,7 +14,7 @@ struct NextDaysContentView: View {
     
     var body: some View {
         List {
-            if viewModel.weatherResponseModel != nil {
+            if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
                 
                 ForEach(0..<viewModel.nextDaysForecastDataList.count, id: \.self) { index in
                     

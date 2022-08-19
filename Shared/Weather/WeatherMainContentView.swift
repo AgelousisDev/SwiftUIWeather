@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import MapItemPicker
 
 struct WeatherMainContentView: View {
     
     @StateObject var viewModel = WeatherViewModel()
     @StateObject private var locationModel = LocationModel()
+    @StateObject private var settingsStore = SettingsStore()
     @State private var settingsState = false
+    @State private var mapAddressPickerViewState = false
     
     var body: some View {
         NavigationView {
@@ -31,22 +34,21 @@ struct WeatherMainContentView: View {
                     ) {
                         Image(systemName: "gearshape")
                     }
-                    .sheet(isPresented: $settingsState) {
-                        
-                    }
+                    .sheet(isPresented: $settingsState, content: SettingsView.init)
                     Button(
-                        action: {
-                            
-                        }
+                        action: requestLocation
                     ) {
                         Image(systemName: "location")
                     }
                     Button(
                         action: {
-                            
+                            mapAddressPickerViewState.toggle()
                         }
                     ) {
                         Image(systemName: "pencil")
+                    }
+                    .mapItemPicker(isPresented: $mapAddressPickerViewState) { item in
+                        print("Selected:\(item?.description)")
                     }
                 }
             )
@@ -58,6 +60,7 @@ struct WeatherMainContentView: View {
         }
         .environmentObject(viewModel)
         .environmentObject(locationModel)
+        .environmentObject(settingsStore)
         .onAppear {
             requestLocation()
         }

@@ -21,10 +21,18 @@ class LocationModel: NSObject, ObservableObject {
     }
 
     public func requestAuthorisation(always: Bool = false) {
-        if always {
-            self.locationManager.requestAlwaysAuthorization()
-        } else {
-            self.locationManager.requestWhenInUseAuthorization()
+        if self.authorisationStatus == CLAuthorizationStatus.authorizedAlways
+            || self.authorisationStatus == CLAuthorizationStatus.authorizedWhenInUse {
+            
+            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+        }
+        else {
+            if always {
+                locationManager.requestAlwaysAuthorization()
+            } else {
+                locationManager.requestWhenInUseAuthorization()
+            }
         }
     }
 }

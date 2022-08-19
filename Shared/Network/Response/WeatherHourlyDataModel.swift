@@ -48,12 +48,22 @@ struct WeatherHourlyDataModel: Codable, Identifiable {
     let gust_kph: Double?
     let uv: Double?
     
-    var currentTemperatureUnitFormatted: String {
-        return String(format: "%d °C", Int(temp_c ?? 0))
+    func currentTemperatureUnitFormatted(settingsStore: SettingsStore) -> String {
+        switch settingsStore.temperatureUnitType {
+        case .FAHRENHEIT:
+            return String(format: "%d °F", Int(temp_f ?? 0))
+        default:
+            return String(format: "%d °C", Int(temp_c ?? 0))
+        }
     }
-    
-    var feelsLikeTemperatureUnitFormatted: String {
-        return String(format: "%d °C", Int(feelslike_c ?? 0))
+
+    func feelsLikeTemperatureUnitFormatted(settingsStore: SettingsStore) -> String {
+        switch settingsStore.temperatureUnitType {
+        case .FAHRENHEIT:
+            return String(format: "%d °F", Int(feelslike_f ?? 0))
+        default:
+            return String(format: "%d °C", Int(feelslike_c ?? 0))
+        }
     }
 
     var displayTime: String? {

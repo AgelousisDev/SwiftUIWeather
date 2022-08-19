@@ -40,3 +40,6 @@
 "key_generic_error_message"                 = "There was a problem processing your request. Please try again later.";
 "key_warning_label"                         = "Warning";
 "key_okLabel"                               = "OK";
+"key_network_label"                         = "Network";
+"key_notifications"                         = "Notifications";
+"key_dismiss_label"                         = "Dismiss";

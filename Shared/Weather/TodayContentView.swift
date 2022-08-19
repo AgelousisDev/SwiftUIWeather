@@ -11,10 +11,11 @@ import SwiftUI
 struct TodayContentView: View {
     
     @EnvironmentObject var viewModel: WeatherViewModel
+    @EnvironmentObject private var settingsStore: SettingsStore
     
     var body: some View {
         VStack {
-            if viewModel.weatherResponseModel != nil && !viewModel.isLoading || isOnPreview {
+            if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
                 
                 ScrollView(.vertical) {
                     // Calendar Item

@@ -11,12 +11,13 @@ import SwiftUI
 struct ForecaseDayWeatherView: View {
     
     let currentDayWeatherDataModel: CurrentDayWeatherDataModel
+    @EnvironmentObject private var settingsStore: SettingsStore
     
     var body: some View {
         VStack(alignment: .center) {
             HStack(alignment: .center, spacing: 16) {
                 // C
-                Text(currentDayWeatherDataModel.currentMinMaxTemperatureUnitFormatted)
+                Text(currentDayWeatherDataModel.currentMinMaxTemperatureUnitFormatted(settingsStore: settingsStore))
                     .font(.title2)
                 // Condition Icon
                 AsyncImage(url: URL(string: currentDayWeatherDataModel.condition?.iconUrl ?? ""), content: { image in
