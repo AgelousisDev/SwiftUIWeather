@@ -24,6 +24,16 @@
 		711901AF2891125B00E868E9 /* TomorrowContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901AD2891125B00E868E9 /* TomorrowContentView.swift */; };
 		711901B12891149000E868E9 /* NextDaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901B02891149000E868E9 /* NextDaysContentView.swift */; };
 		711901B22891149000E868E9 /* NextDaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711901B02891149000E868E9 /* NextDaysContentView.swift */; };
+		711BB7C928B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7C828B1631000B7BA2E /* UserDefaultsUtils.swift */; };
+		711BB7CA28B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7C828B1631000B7BA2E /* UserDefaultsUtils.swift */; };
+		711BB7CD28B1637200B7BA2E /* ObjectSaveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7CC28B1637200B7BA2E /* ObjectSaveable.swift */; };
+		711BB7CE28B1637200B7BA2E /* ObjectSaveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7CC28B1637200B7BA2E /* ObjectSaveable.swift */; };
+		711BB7D128B163C600B7BA2E /* ObjectSaveableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D028B163C600B7BA2E /* ObjectSaveableError.swift */; };
+		711BB7D228B163C600B7BA2E /* ObjectSaveableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D028B163C600B7BA2E /* ObjectSaveableError.swift */; };
+		711BB7D428B16A7600B7BA2E /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D328B16A7600B7BA2E /* CenterModifier.swift */; };
+		711BB7D528B16A7600B7BA2E /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D328B16A7600B7BA2E /* CenterModifier.swift */; };
+		711BB7D828B16B5600B7BA2E /* WeatherRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D728B16B5600B7BA2E /* WeatherRefreshControl.swift */; };
+		711BB7D928B16B5600B7BA2E /* WeatherRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB7D728B16B5600B7BA2E /* WeatherRefreshControl.swift */; };
 		712105F4289B793C003089D5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712105F3289B793C003089D5 /* DotView.swift */; };
 		712105F5289B793C003089D5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712105F3289B793C003089D5 /* DotView.swift */; };
 		7125F75328939C8500F72D6F /* WeatherConditionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */; };
@@ -157,6 +167,11 @@
 		711901A8289107E300E868E9 /* TodayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayContentView.swift; sourceTree = "<group>"; };
 		711901AD2891125B00E868E9 /* TomorrowContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowContentView.swift; sourceTree = "<group>"; };
 		711901B02891149000E868E9 /* NextDaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextDaysContentView.swift; sourceTree = "<group>"; };
+		711BB7C828B1631000B7BA2E /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		711BB7CC28B1637200B7BA2E /* ObjectSaveable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSaveable.swift; sourceTree = "<group>"; };
+		711BB7D028B163C600B7BA2E /* ObjectSaveableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSaveableError.swift; sourceTree = "<group>"; };
+		711BB7D328B16A7600B7BA2E /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
+		711BB7D728B16B5600B7BA2E /* WeatherRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRefreshControl.swift; sourceTree = "<group>"; };
 		712105F3289B793C003089D5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionDataModel.swift; sourceTree = "<group>"; };
 		7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAirQualityDataModel.swift; sourceTree = "<group>"; };
@@ -272,6 +287,7 @@
 				712105F3289B793C003089D5 /* DotView.swift */,
 				71E525F9289C41D90079A1EE /* CircularProgressView.swift */,
 				7150324A289ED60D006A7CF9 /* VerticalProgressBar.swift */,
+				711BB7D328B16A7600B7BA2E /* CenterModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +300,30 @@
 				711013AC28A35D3D0010272C /* SunAndMoonStateRowView.swift */,
 			);
 			path = Rows;
+			sourceTree = "<group>";
+		};
+		711BB7CB28B1636400B7BA2E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				711BB7CC28B1637200B7BA2E /* ObjectSaveable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		711BB7CF28B163A100B7BA2E /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				711BB7D028B163C600B7BA2E /* ObjectSaveableError.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		711BB7D628B16B3200B7BA2E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				711BB7D728B16B5600B7BA2E /* WeatherRefreshControl.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		712AB5AB28993E68003883F8 /* Rows */ = {
@@ -366,6 +406,7 @@
 		712C28E42890E951002AD4CF /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				711BB7D628B16B3200B7BA2E /* Protocol */,
 				712FAE9128B0002F003E575E /* Store */,
 				713D7083289A1EC700D5B80C /* Extensions */,
 				712AB5AB28993E68003883F8 /* Rows */,
@@ -401,6 +442,8 @@
 		712C28EB2890EBB1002AD4CF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				711BB7CF28B163A100B7BA2E /* Enumerations */,
+				711BB7CB28B1636400B7BA2E /* Protocol */,
 				7131BDBD2899215500803B2A /* Helpers */,
 				71D3B73F2898D36E00969292 /* Constants */,
 				712C28EC2890EBB7002AD4CF /* Extensions */,
@@ -417,6 +460,7 @@
 				71CBFF722899158100143EF6 /* DateUtils.swift */,
 				71079364289A5E7300FC2699 /* Extensions.swift */,
 				71E525F6289C3C9E0079A1EE /* DoubleUtils.swift */,
+				711BB7C828B1631000B7BA2E /* UserDefaultsUtils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -764,14 +808,19 @@
 				71079365289A5E7300FC2699 /* Extensions.swift in Sources */,
 				712FAE8F28AFFF86003E575E /* TemperatureUnitType.swift in Sources */,
 				713783A928928D85006FFC87 /* RequestManager.swift in Sources */,
+				711BB7D428B16A7600B7BA2E /* CenterModifier.swift in Sources */,
 				71CBFF7028990CFB00143EF6 /* CustomImage.swift in Sources */,
 				711901B12891149000E868E9 /* NextDaysContentView.swift in Sources */,
+				711BB7D128B163C600B7BA2E /* ObjectSaveableError.swift in Sources */,
+				711BB7CD28B1637200B7BA2E /* ObjectSaveable.swift in Sources */,
 				712AB5AD28993EC3003883F8 /* CalendarRowView.swift in Sources */,
+				711BB7D828B16B5600B7BA2E /* WeatherRefreshControl.swift in Sources */,
 				713783A328928C2F006FFC87 /* AddressDataModel.swift in Sources */,
 				711013AD28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */,
 				713783BC28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
 				712C28D02890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
 				71C79EB82897CD02004986E3 /* WeatherForecastDayDataModel.swift in Sources */,
+				711BB7C928B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */,
 				7160C6FB28AF3EA200F72FA8 /* WeatherSettings.swift in Sources */,
 				711901AE2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
 				7109B074289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */,
@@ -823,14 +872,19 @@
 				71079366289A5E7300FC2699 /* Extensions.swift in Sources */,
 				712FAE9028AFFF86003E575E /* TemperatureUnitType.swift in Sources */,
 				711901B22891149000E868E9 /* NextDaysContentView.swift in Sources */,
+				711BB7D528B16A7600B7BA2E /* CenterModifier.swift in Sources */,
 				713783A428928C2F006FFC87 /* AddressDataModel.swift in Sources */,
 				713783BD28929316006FFC87 /* WeatherForecastDataModel.swift in Sources */,
+				711BB7D228B163C600B7BA2E /* ObjectSaveableError.swift in Sources */,
+				711BB7CE28B1637200B7BA2E /* ObjectSaveable.swift in Sources */,
 				712AB5AE28993EC3003883F8 /* CalendarRowView.swift in Sources */,
+				711BB7D928B16B5600B7BA2E /* WeatherRefreshControl.swift in Sources */,
 				712C28D12890E5E5002AD4CF /* SwiftUIWeatherApp.swift in Sources */,
 				711013AE28A35D3D0010272C /* SunAndMoonStateRowView.swift in Sources */,
 				717485A528991B0C001E239F /* StringUtils.swift in Sources */,
 				71C79EB92897CD02004986E3 /* WeatherForecastDayDataModel.swift in Sources */,
 				711901AF2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
+				711BB7CA28B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */,
 				7160C6FC28AF3EA200F72FA8 /* WeatherSettings.swift in Sources */,
 				717485A428991B09001E239F /* SunAndMoonState.swift in Sources */,
 				7109B075289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */,
@@ -999,7 +1053,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K7759SMQSA;
+				DEVELOPMENT_TEAM = YZSQH5GMY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SwiftUI Weather needs your location in order to diplay current weather";
@@ -1030,7 +1084,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K7759SMQSA;
+				DEVELOPMENT_TEAM = YZSQH5GMY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SwiftUI Weather needs your location in order to diplay current weather";

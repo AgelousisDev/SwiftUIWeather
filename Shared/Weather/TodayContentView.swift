@@ -17,26 +17,47 @@ struct TodayContentView: View {
         VStack {
             if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
                 
-                ScrollView(.vertical) {
+                List {
                     // Calendar Item
                     CalendarRowView()
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     
                     // Current Temperature
                     CurrentTemperatureRowView(currentWeatherDataModel: viewModel.weatherResponseModel?.current)
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     
                     // Day Hourly Temperature
                     HeaderView(header: "key_temperature_label".localized)
                         .padding(.top, 16)
                         .padding(.leading, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     HourlyWeatherConditionsRowView(weatherHourlyDataModelList: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.remainingWeatherHourlyDataModelList ?? [], weatherNavigationScreen: WeatherNavigationScreen.Today)
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     
                     // Sun & Moon
                     HeaderView(header: "key_sun_and_moon_label".localized)
                         .padding(.top, 16)
                         .padding(.leading, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
                     SunAndMoonRowView(sunAndMoonStates: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.astro?.availableSunAndMoonStates ?? [], weatherAstroDataModel: viewModel.weatherResponseModel?.forecast?.todayWeatherForecastDayDataModel?.astro)
+                        .modifier(CenterModifier())
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
+                }
+                .refreshable {
+                    viewModel.weatherRefreshControl?.onRefresh()
                 }
             }
             if viewModel.isLoading {

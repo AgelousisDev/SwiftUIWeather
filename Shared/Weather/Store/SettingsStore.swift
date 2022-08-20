@@ -15,6 +15,7 @@ final class SettingsStore: ObservableObject {
         static let temperatureType = "temperatureType"
         static let offlineMode = "offlineMode"
         static let weatherNotifications = "weatherNotifications"
+        static let weatherResponseModel = "weatherResponseModel"
     }
     
     private let cancellable: Cancellable
@@ -51,6 +52,11 @@ final class SettingsStore: ObservableObject {
     var weatherNotificationsState: Bool {
         set { defaults.set(newValue, forKey: Keys.weatherNotifications) }
         get { defaults.bool(forKey: Keys.weatherNotifications) }
+    }
+    
+    var weatherResponseModel: WeatherResponseModel? {
+        set { try? defaults.setObject(newValue, forKey: Keys.weatherResponseModel) }
+        get { try? defaults.getObject(forKey: Keys.weatherResponseModel, castTo: WeatherResponseModel.self) }
     }
     
     

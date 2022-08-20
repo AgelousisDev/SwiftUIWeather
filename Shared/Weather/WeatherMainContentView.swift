@@ -11,8 +11,8 @@ import MapItemPicker
 struct WeatherMainContentView: View {
     
     @StateObject var viewModel = WeatherViewModel()
-    @StateObject private var locationModel = LocationModel()
-    @StateObject private var settingsStore = SettingsStore()
+    @StateObject var locationModel = LocationModel()
+    @StateObject var settingsStore = SettingsStore()
     @State private var settingsState = false
     @State private var mapAddressPickerViewState = false
     
@@ -47,8 +47,10 @@ struct WeatherMainContentView: View {
                     ) {
                         Image(systemName: "pencil")
                     }
-                    .mapItemPicker(isPresented: $mapAddressPickerViewState) { item in
-                        print("Selected:\(item?.description)")
+                    .mapItemPicker(isPresented: $mapAddressPickerViewState) { mkMapItem in
+                        if let mkMapItem = mkMapItem {
+                            configureLocation(from: mkMapItem)
+                        }
                     }
                 }
             )
@@ -63,6 +65,7 @@ struct WeatherMainContentView: View {
         .environmentObject(settingsStore)
         .onAppear {
             requestLocation()
+            viewModel.weatherRefreshControl = self
         }
     }
     

@@ -23,6 +23,8 @@ class WeatherViewModel: ObservableObject {
     
     @Published var weatherResponseModel: WeatherResponseModel?
     
+    var weatherRefreshControl: WeatherResfreshControl?
+    
     var nextDaysForecastDataList: [Any] {
         var items = [Any]()
         for weatherForecastDayDataModel in weatherResponseModel?.forecast?.nextWeatherForecastDayDataModelList ?? [] {
@@ -56,7 +58,7 @@ class WeatherViewModel: ObservableObject {
         return items
     }
         
-    func requestForecast(location: String, days: Int, airQualityState: Bool, alertsState: Bool) {
+    func requestForecast(settingsStore: SettingsStore, location: String, days: Int, airQualityState: Bool, alertsState: Bool) {
         isLoading = true
         RequestManager.requestWeatherForecast(location: location, days: days, airQualityState: airQualityState, alertsState: alertsState, successModelBlock: { weatherResponseModel in
             self.isLoading = false
@@ -65,9 +67,16 @@ class WeatherViewModel: ObservableObject {
             if self.navigationBarTitle == nil {
                 self.navigationBarTitle = weatherResponseModel.location?.regionCountry
             }
+            settingsStore.weatherResponseModel = weatherResponseModel
         }, errorBlock: { errorModel in
             self.isLoading = false
-            self.networkErrorState = true
+            if settingsStore.offlineMode && settingsStore.weatherResponseModel != nil {
+                self.weatherResponseModel = settingsStore.weatherResponseModel
+                self.navigationBarTitle = settingsStore.weatherResponseModel?.location?.regionCountry
+            }
+            else {
+                self.networkErrorState = true
+            }
             self.showAlert()
             self.alertTuple = ("key_warning_label".localized, errorModel.localizedMessage)
         })

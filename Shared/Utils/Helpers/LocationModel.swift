@@ -14,55 +14,8 @@ class LocationModel: NSObject, ObservableObject {
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
     @Published var addressDataModel: AddressDataModel?
     var locationModelProtocol: LocationModelProtocol?
-
-    override init() {
-        super.init()
-        self.locationManager.delegate = self
-    }
-
-    public func requestAuthorisation(always: Bool = false) {
-        if self.authorisationStatus == CLAuthorizationStatus.authorizedAlways
-            || self.authorisationStatus == CLAuthorizationStatus.authorizedWhenInUse {
-            
-            locationManager.requestLocation()
-            locationManager.startUpdatingLocation()
-        }
-        else {
-            if always {
-                locationManager.requestAlwaysAuthorization()
-            } else {
-                locationManager.requestWhenInUseAuthorization()
-            }
-        }
-    }
-}
-
-extension LocationModel: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.authorisationStatus = status
-        if status == CLAuthorizationStatus.authorizedAlways
-            || status == CLAuthorizationStatus.authorizedWhenInUse {
-            
-            manager.requestLocation()
-            manager.startUpdatingLocation()
-        }
-    }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        manager.stopUpdatingLocation()
-        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
-        getAddressFromLatLon(pdblLatitude: locValue.latitude, withLongitude: locValue.longitude) { addressDataModel in
-            self.addressDataModel = addressDataModel
-            self.locationModelProtocol?.onLocationAddressReady(addressDataModel: addressDataModel)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-    
-    private func getAddressFromLatLon(pdblLatitude: Double, withLongitude pdblLongitude: Double, successModelBlock: @escaping SuccessModelBlock<AddressDataModel>) {
+    static func getAddressFromLatLon(pdblLatitude: Double, withLongitude pdblLongitude: Double, successModelBlock: @escaping SuccessModelBlock<AddressDataModel>) {
         var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
         let ceo: CLGeocoder = CLGeocoder()
         center.latitude = pdblLatitude
@@ -102,4 +55,52 @@ extension LocationModel: CLLocationManagerDelegate {
               }
         })
     }
+
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+    }
+
+    public func requestAuthorisation(always: Bool = false) {
+        if self.authorisationStatus == CLAuthorizationStatus.authorizedAlways
+            || self.authorisationStatus == CLAuthorizationStatus.authorizedWhenInUse {
+            
+            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+        }
+        else {
+            if always {
+                locationManager.requestAlwaysAuthorization()
+            } else {
+                locationManager.requestWhenInUseAuthorization()
+            }
+        }
+    }
+}
+
+extension LocationModel: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorisationStatus = status
+        if status == CLAuthorizationStatus.authorizedAlways
+            || status == CLAuthorizationStatus.authorizedWhenInUse {
+            
+            manager.requestLocation()
+            manager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
+        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
+        LocationModel.getAddressFromLatLon(pdblLatitude: locValue.latitude, withLongitude: locValue.longitude) { addressDataModel in
+            self.addressDataModel = addressDataModel
+            self.locationModelProtocol?.onLocationAddressReady(addressDataModel: addressDataModel)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
 }
