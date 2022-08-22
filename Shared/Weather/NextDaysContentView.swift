@@ -13,29 +13,34 @@ struct NextDaysContentView: View {
     @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
-        List {
-            if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
-                
-                ForEach(0..<viewModel.nextDaysForecastDataList.count, id: \.self) { index in
+        VStack {
+            List {
+                if viewModel.weatherResponseModel != nil && !viewModel.isLoading && !viewModel.requestLocationState || isOnPreview {
                     
-                    if let header = viewModel.nextDaysForecastDataList[index] as? String {
+                    ForEach(0..<viewModel.nextDaysForecastDataList.count, id: \.self) { index in
                         
-                        HeaderView(header: header)
-                            .listRowSeparator(.hidden)
-                    }
-                    
-                    if let currentDayWeatherDataModel = viewModel.nextDaysForecastDataList[index] as? CurrentDayWeatherDataModel {
+                        if let header = viewModel.nextDaysForecastDataList[index] as? String {
+                            
+                            HeaderView(header: header)
+                                .listRowSeparator(.hidden)
+                        }
                         
-                        ForecaseDayWeatherView(currentDayWeatherDataModel: currentDayWeatherDataModel)
-                            .listRowSeparator(.hidden)
-                    }
-                    
-                    if let weatherHourlyDataModelList = viewModel.nextDaysForecastDataList[index] as? [WeatherHourlyDataModel] {
+                        if let currentDayWeatherDataModel = viewModel.nextDaysForecastDataList[index] as? CurrentDayWeatherDataModel {
+                            
+                            ForecaseDayWeatherView(currentDayWeatherDataModel: currentDayWeatherDataModel)
+                                .listRowSeparator(.hidden)
+                        }
                         
-                        HourlyWeatherConditionsRowView(weatherHourlyDataModelList: weatherHourlyDataModelList, weatherNavigationScreen: WeatherNavigationScreen.NextDays)
-                            .listRowSeparator(.hidden)
+                        if let weatherHourlyDataModelList = viewModel.nextDaysForecastDataList[index] as? [WeatherHourlyDataModel] {
+                            
+                            HourlyWeatherConditionsRowView(weatherHourlyDataModelList: weatherHourlyDataModelList, weatherNavigationScreen: WeatherNavigationScreen.NextDays)
+                                .listRowSeparator(.hidden)
+                        }
                     }
                 }
+            }
+            .refreshable {
+                viewModel.weatherRefreshControl?.onRefresh()
             }
             if viewModel.isLoading {
                 ActivityIndicatorView(isAnimating: $viewModel.isLoading, style: .large)
