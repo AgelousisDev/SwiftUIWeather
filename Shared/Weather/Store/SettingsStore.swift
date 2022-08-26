@@ -51,11 +51,7 @@ final class SettingsStore: ObservableObject {
     }
 
     var weatherNotificationsState: Bool {
-        set {
-            NotificationHelper.shared.initializeNotificationAuthorization(with: 60 * 60) { authorizationState in
-                self.defaults.set(authorizationState, forKey: Keys.weatherNotifications)
-            }
-        }
+        set { self.defaults.set(newValue, forKey: Keys.weatherNotifications) }
         get { defaults.bool(forKey: Keys.weatherNotifications) }
     }
     

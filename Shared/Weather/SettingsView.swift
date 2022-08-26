@@ -36,7 +36,17 @@ struct SettingsView: View {
             }
             // Weather Notifications
             Section(header: Text("key_notifications".localized)) {
-                Toggle(isOn: $settings.weatherNotificationsState) {
+                Toggle(isOn: $settings.weatherNotificationsState.didSet { state in
+                    if state {
+                        
+                        NotificationHelper.shared.initializeNotificationAuthorization(with: 60, settingsStore: settings) { _ in
+                        }
+                    }
+                    else {
+                        
+                        NotificationHelper.shared.stopNotifications(with: SettingsStore.Keys.weatherNotifications)
+                    }
+                }) {
                     Text("key_weather_notifications_label".localized)
                 }
             }
