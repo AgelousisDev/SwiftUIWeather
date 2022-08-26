@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7103AA7828B878E10021EB8B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103AA7728B878E10021EB8B /* NotificationHelper.swift */; };
+		7103AA7928B878E10021EB8B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103AA7728B878E10021EB8B /* NotificationHelper.swift */; };
+		7103AA7C28B879230021EB8B /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103AA7B28B879230021EB8B /* NotificationDataModel.swift */; };
+		7103AA7D28B879230021EB8B /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7103AA7B28B879230021EB8B /* NotificationDataModel.swift */; };
 		71079362289A427B00FC2699 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71079361289A427B00FC2699 /* ActivityIndicatorView.swift */; };
 		71079363289A427B00FC2699 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71079361289A427B00FC2699 /* ActivityIndicatorView.swift */; };
 		71079365289A5E7300FC2699 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71079364289A5E7300FC2699 /* Extensions.swift */; };
@@ -159,6 +163,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7103AA7728B878E10021EB8B /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		7103AA7B28B879230021EB8B /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
 		71079361289A427B00FC2699 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		71079364289A5E7300FC2699 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7109B073289A8C4F00408E49 /* CurrentTemperatureRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperatureRowView.swift; sourceTree = "<group>"; };
@@ -271,6 +277,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7103AA7A28B879190021EB8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7103AA7B28B879230021EB8B /* NotificationDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7107935F289A426500FC2699 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +456,7 @@
 		712C28EB2890EBB1002AD4CF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7103AA7A28B879190021EB8B /* Model */,
 				711BB7CF28B163A100B7BA2E /* Enumerations */,
 				711BB7CB28B1636400B7BA2E /* Protocol */,
 				7131BDBD2899215500803B2A /* Helpers */,
@@ -479,6 +494,7 @@
 				713D707F289A1E1900D5B80C /* Protocol */,
 				7131BDBF2899216700803B2A /* LocationModel.swift */,
 				712AB5AF28994427003883F8 /* LottieView.swift */,
+				7103AA7728B878E10021EB8B /* NotificationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -779,6 +795,7 @@
 			files = (
 				71D3B7412898D37E00969292 /* Constants.swift in Sources */,
 				713783C028929446006FFC87 /* ErrorModel.swift in Sources */,
+				7103AA7C28B879230021EB8B /* NotificationDataModel.swift in Sources */,
 				713783AF28928EB0006FFC87 /* ApiConstants.swift in Sources */,
 				7125F75628939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */,
 				7137839F28928AE0006FFC87 /* WeatherViewModel.swift in Sources */,
@@ -823,6 +840,7 @@
 				711BB7C928B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */,
 				7160C6FB28AF3EA200F72FA8 /* WeatherSettings.swift in Sources */,
 				711901AE2891125B00E868E9 /* TomorrowContentView.swift in Sources */,
+				7103AA7828B878E10021EB8B /* NotificationHelper.swift in Sources */,
 				7109B074289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */,
 				7150324B289ED60D006A7CF9 /* VerticalProgressBar.swift in Sources */,
 				7150324E289EE0E8006A7CF9 /* HeaderView.swift in Sources */,
@@ -843,6 +861,7 @@
 			files = (
 				71D3B7422898D37E00969292 /* Constants.swift in Sources */,
 				717485A228991B04001E239F /* CurrentWeatherDataModel.swift in Sources */,
+				7103AA7D28B879230021EB8B /* NotificationDataModel.swift in Sources */,
 				713783C128929446006FFC87 /* ErrorModel.swift in Sources */,
 				713783B028928EB0006FFC87 /* ApiConstants.swift in Sources */,
 				7125F75728939C9E00F72D6F /* WeatherAirQualityDataModel.swift in Sources */,
@@ -887,6 +906,7 @@
 				711BB7CA28B1631000B7BA2E /* UserDefaultsUtils.swift in Sources */,
 				7160C6FC28AF3EA200F72FA8 /* WeatherSettings.swift in Sources */,
 				717485A428991B09001E239F /* SunAndMoonState.swift in Sources */,
+				7103AA7928B878E10021EB8B /* NotificationHelper.swift in Sources */,
 				7109B075289A8C4F00408E49 /* CurrentTemperatureRowView.swift in Sources */,
 				7150324C289ED60D006A7CF9 /* VerticalProgressBar.swift in Sources */,
 				7150324F289EE0E8006A7CF9 /* HeaderView.swift in Sources */,
