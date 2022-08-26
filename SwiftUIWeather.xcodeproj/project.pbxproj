@@ -179,6 +179,7 @@
 		711BB7D328B16A7600B7BA2E /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
 		711BB7D728B16B5600B7BA2E /* WeatherRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRefreshControl.swift; sourceTree = "<group>"; };
 		712105F3289B793C003089D5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		7121B0B328B891F0001BE883 /* SwiftUIWeather--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUIWeather--iOS--Info.plist"; sourceTree = "<group>"; };
 		7125F75228939C8500F72D6F /* WeatherConditionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionDataModel.swift; sourceTree = "<group>"; };
 		7125F75528939C9E00F72D6F /* WeatherAirQualityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAirQualityDataModel.swift; sourceTree = "<group>"; };
 		7125F75928939D9B00F72D6F /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 		712C28A22890E5E2002AD4CF = {
 			isa = PBXGroup;
 			children = (
+				7121B0B328B891F0001BE883 /* SwiftUIWeather--iOS--Info.plist */,
 				712C28A72890E5E2002AD4CF /* Shared */,
 				712C28B62890E5E5002AD4CF /* macOS */,
 				712C28BF2890E5E5002AD4CF /* Tests iOS */,
@@ -1076,6 +1078,7 @@
 				DEVELOPMENT_TEAM = YZSQH5GMY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUIWeather--iOS--Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SwiftUI Weather needs your location in order to diplay current weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1107,6 +1110,7 @@
 				DEVELOPMENT_TEAM = YZSQH5GMY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUIWeather--iOS--Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SwiftUI Weather needs your location in order to diplay current weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -10,6 +10,7 @@ import MapKit
 
 extension WeatherMainContentView: LocationModelProtocol {
     func onLocationAddressReady(addressDataModel: AddressDataModel) {
+        settingsStore.addressDataModel = addressDataModel
         viewModel.requestLocationState = false
         viewModel.navigationBarTitle = addressDataModel.addressLine
         requestWeatherForecast(with: addressDataModel)

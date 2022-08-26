@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AddressDataModel {
+struct AddressDataModel: Codable {
     let countryName: String?
     let countryCode: String?
     let longitude: Double?

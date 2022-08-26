@@ -11,11 +11,12 @@ import Combine
 
 final class SettingsStore: ObservableObject {
     
-    private enum Keys {
+    enum Keys {
         static let temperatureType = "temperatureType"
         static let offlineMode = "offlineMode"
         static let weatherNotifications = "weatherNotifications"
         static let weatherResponseModel = "weatherResponseModel"
+        static let addressDataModel = "addressDataModel"
     }
     
     private let cancellable: Cancellable
@@ -50,13 +51,22 @@ final class SettingsStore: ObservableObject {
     }
 
     var weatherNotificationsState: Bool {
-        set { defaults.set(newValue, forKey: Keys.weatherNotifications) }
+        set {
+            NotificationHelper.shared.initializeNotificationAuthorization(with: 60 * 60) { authorizationState in
+                self.defaults.set(authorizationState, forKey: Keys.weatherNotifications)
+            }
+        }
         get { defaults.bool(forKey: Keys.weatherNotifications) }
     }
     
     var weatherResponseModel: WeatherResponseModel? {
         set { try? defaults.setObject(newValue, forKey: Keys.weatherResponseModel) }
         get { try? defaults.getObject(forKey: Keys.weatherResponseModel, castTo: WeatherResponseModel.self) }
+    }
+    
+    var addressDataModel: AddressDataModel? {
+        set { try? defaults.setObject(newValue, forKey: Keys.addressDataModel) }
+        get { try? defaults.getObject(forKey: Keys.addressDataModel, castTo: AddressDataModel.self) }
     }
     
     
