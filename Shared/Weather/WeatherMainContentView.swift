@@ -12,9 +12,18 @@ struct WeatherMainContentView: View {
     
     @StateObject var viewModel = WeatherViewModel()
     @StateObject var locationModel = LocationModel()
-    @StateObject var settingsStore = SettingsStore()
+    @EnvironmentObject var settingsStore: SettingsStore
     @State private var settingsState = false
     @State private var mapAddressPickerViewState = false
+    
+    init() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -62,7 +71,6 @@ struct WeatherMainContentView: View {
         }
         .environmentObject(viewModel)
         .environmentObject(locationModel)
-        .environmentObject(settingsStore)
         .onAppear {
             requestLocation()
             viewModel.weatherRefreshControl = self

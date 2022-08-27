@@ -10,8 +10,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: SettingsStore
+    @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject private var settings: SettingsStore
+    @EnvironmentObject private var appDelegate: AppDelegate
     
     var body: some View {
         Form {
@@ -39,7 +40,7 @@ struct SettingsView: View {
                 Toggle(isOn: $settings.weatherNotificationsState.didSet { state in
                     if state {
                         
-                        NotificationHelper.shared.initializeNotificationAuthorization(with: 60, settingsStore: settings) { _ in
+                        NotificationHelper.shared.initializeNotificationAuthorization(with: 60, appDelegate: appDelegate, settingsStore: settings) { _ in
                         }
                     }
                     else {
